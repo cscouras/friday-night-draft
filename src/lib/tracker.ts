@@ -49,6 +49,10 @@ export function resultFrom(score: number, against: number): Result {
   return 'T';
 }
 
+export function formatRecord(w: number, l: number, t: number): string {
+  return t > 0 ? `${w}-${l}-${t}` : `${w}-${l}`;
+}
+
 export function computeMedian(scores: number[]): number {
   const sorted = [...scores].sort((a, b) => a - b);
   const mid = sorted.length / 2;

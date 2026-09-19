@@ -1,6 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-import { LeagueTracker } from '../../../lib/tracker';
+import { LeagueTracker, formatRecord } from '../../../lib/tracker';
 import { seasons, type Season } from '../../../data/seasons';
 
 export function getStaticPaths() {
@@ -31,9 +31,6 @@ const rows = leagueStandings.map((team, leagueRank) => {
 	const movement = leagueRank - h2hRank;
 	return { team, leagueRank, h2h, h2hRank, movement };
 });
-
-const record = (w: number, l: number, t: number) =>
-	(t > 0 ? `${w}-${l}-${t}` : `${w}-${l}`);
 ---
 
 <Layout title={`H2H What-If | ${season.label} | Friday Night Draft`}>
@@ -71,14 +68,14 @@ const record = (w: number, l: number, t: number) =>
 								<td class="rank-col">{row.leagueRank + 1}</td>
 								<td><strong>{row.team.name}</strong></td>
 								<td class="numeric">
-									{record(row.team.w, row.team.l, row.team.t)}
+									{formatRecord(row.team.w, row.team.l, row.team.t)}
 								</td>
 								<td class="numeric">
 									{(row.team.winPct * 100).toFixed(1)}%
 								</td>
 								<td class="numeric">
 									{row.h2h
-										? record(row.h2h.w, row.h2h.l, row.h2h.t)
+										? formatRecord(row.h2h.w, row.h2h.l, row.h2h.t)
 										: '–'}
 								</td>
 								<td class="numeric">
@@ -86,7 +83,7 @@ const record = (w: number, l: number, t: number) =>
 								</td>
 								<td class="numeric">
 									{row.team.median
-										? record(
+										? formatRecord(
 												row.team.median.w,
 												row.team.median.l,
 												row.team.median.t,

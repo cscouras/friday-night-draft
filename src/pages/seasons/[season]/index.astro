@@ -1,6 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-import { LeagueTracker } from '../../../lib/tracker';
+import { LeagueTracker, formatRecord } from '../../../lib/tracker';
 import { seasons, type Season } from '../../../data/seasons';
 
 export function getStaticPaths() {
@@ -20,8 +20,6 @@ for (const week of season.weeks) {
 
 const standings = tracker.getStandings();
 const totalWeeks = season.weeks.length;
-const record = (w: number, l: number, t: number) =>
-	(t > 0 ? `${w}-${l}-${t}` : `${w}-${l}`);
 ---
 
 <Layout title={`${season.label} | Median Standings | Friday Night Draft`}>
@@ -71,15 +69,15 @@ const record = (w: number, l: number, t: number) =>
 									<strong>{team.name}</strong>
 								</td>
 								<td class="numeric">
-									{team.w}-{team.l}-{team.t}
+									{formatRecord(team.w, team.l, team.t)}
 								</td>
 								<td class="numeric">{(team.winPct * 100).toFixed(1)}%</td>
 								<td class="numeric">
-									{record(team.h2h.w, team.h2h.l, team.h2h.t)}
+									{formatRecord(team.h2h.w, team.h2h.l, team.h2h.t)}
 								</td>
 								<td class="numeric">
 									{team.median &&
-										record(team.median.w, team.median.l, team.median.t)}
+										formatRecord(team.median.w, team.median.l, team.median.t)}
 								</td>
 								<td class="numeric">{team.pf.toFixed(2)}</td>
 								<td class="numeric">{team.pa.toFixed(2)}</td>
