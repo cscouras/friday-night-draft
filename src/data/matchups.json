@@ -1,0 +1,67 @@
+[
+  {
+    "week": 1,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Gibbs It t'Zay Now",
+          "score": 146.52
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Save The Clock Tower!",
+          "score": 105.24
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "A Little Moore Bellcow",
+          "score": 128.76
+        },
+        "team2": {
+          "teamId": 2,
+          "teamName": "Three Petes",
+          "score": 137.26
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "Burrowing My Sorrows",
+          "score": 105.36
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Mike Finnerty",
+          "score": 130.12
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "Harry Heilmans m’Ladd McConkey",
+          "score": 63.20
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 142.96
+        }
+      },
+      {
+        "team1": {
+          "teamId": 6,
+          "teamName": "Risk of Disclosure",
+          "score": 131.46
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "The Naberhood",
+          "score": 127.80
+        }
+      }
+    ]
+  }
+]

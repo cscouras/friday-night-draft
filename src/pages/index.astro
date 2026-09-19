@@ -1,0 +1,129 @@
+---
+import { LeagueTracker } from '../lib/tracker';
+import seasonData from '../data/matchups.json';
+
+const tracker = new LeagueTracker();
+
+// Iterate through every completed week in the JSON array
+for (const week of seasonData) {
+	tracker.processWeek(week.matchups);
+}
+
+const standings = tracker.getStandings();
+const totalWeeks = seasonData.length;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Friday Night Draft | Median Scoring</title>
+		<style>
+			body {
+				font-family:
+					system-ui,
+					-apple-system,
+					BlinkMacSystemFont,
+					'Segoe UI',
+					Roboto,
+					sans-serif;
+				background-color: #0f172a;
+				color: #f8fafc;
+				margin: 0;
+				padding: 2rem 1rem;
+			}
+			.container {
+				max-width: 850px;
+				margin: 0 auto;
+			}
+			header {
+				margin-bottom: 1.5rem;
+			}
+			h1 {
+				font-size: 1.75rem;
+				margin: 0 0 0.25rem 0;
+			}
+			p.subtitle {
+				color: #94a3b8;
+				margin: 0;
+				font-size: 0.95rem;
+			}
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				background-color: #1e293b;
+				border-radius: 8px;
+				overflow: hidden;
+			}
+			th,
+			td {
+				padding: 0.75rem 1rem;
+				text-align: left;
+			}
+			th {
+				background-color: #334155;
+				font-size: 0.85rem;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				color: #cbd5e1;
+			}
+			tr:nth-child(even) {
+				background-color: #162032;
+			}
+			tr:hover {
+				background-color: #243047;
+			}
+			td.numeric,
+			th.numeric {
+				text-align: right;
+			}
+			.rank-col {
+				width: 50px;
+				color: #94a3b8;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<h1>Friday Night Draft</h1>
+				<p class="subtitle">
+					League Median Standings ({totalWeeks} Completed {
+						totalWeeks === 1 ? 'Week' : 'Weeks'
+					})
+				</p>
+			</header>
+
+			<table>
+				<thead>
+					<tr>
+						<th class="rank-col">#</th>
+						<th>Team</th>
+						<th class="numeric">Record</th>
+						<th class="numeric">Win %</th>
+						<th class="numeric">PF</th>
+						<th class="numeric">PA</th>
+					</tr>
+				</thead>
+				<tbody>
+					{
+						standings.map((team, idx) => (
+							<tr>
+								<td class="rank-col">{idx + 1}</td>
+								<td>
+									<strong>{team.name}</strong>
+								</td>
+								<td class="numeric">
+									{team.w}-{team.l}-{team.t}
+								</td>
+								<td class="numeric">{(team.winPct * 100).toFixed(1)}%</td>
+								<td class="numeric">{team.pf.toFixed(2)}</td>
+								<td class="numeric">{team.pa.toFixed(2)}</td>
+							</tr>
+						))
+					}
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
