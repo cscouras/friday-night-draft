@@ -9,6 +9,13 @@ export interface Matchup {
   team2: TeamScore;
 }
 
+export interface TeamRecord {
+  w: number;
+  l: number;
+  t: number;
+  winPct: number;
+}
+
 export interface TeamStanding {
   teamId: string | number;
   name: string;
@@ -18,6 +25,8 @@ export interface TeamStanding {
   pf: number;
   pa: number;
   winPct: number;
+  h2h: TeamRecord;
+  median?: TeamRecord;
 }
 
 export interface WeeklyAuditRow {
@@ -88,12 +97,44 @@ export function getWeeklyAudit(matchups: Matchup[]): {
 
 export type TrackerMode = 'median' | 'h2h';
 
+interface RawRecord {
+  w: number;
+  l: number;
+  t: number;
+}
+
+interface TeamData {
+  name: string;
+  h2h: RawRecord;
+  median?: RawRecord;
+  pf: number;
+  paOpp: number;
+  paMedian: number;
+}
+
+const emptyRecord = (): RawRecord => ({ w: 0, l: 0, t: 0 });
+
+const recordWinPct = ({ w, l, t }: RawRecord): number => {
+  const total = w + l + t;
+  return total > 0 ? (w + 0.5 * t) / total : 0;
+};
+
+const toTeamRecord = (rec: RawRecord): TeamRecord => ({
+  w: rec.w,
+  l: rec.l,
+  t: rec.t,
+  winPct: recordWinPct(rec),
+});
+
+const addResult = (rec: RawRecord, result: Result): void => {
+  if (result === 'W') rec.w++;
+  else if (result === 'L') rec.l++;
+  else rec.t++;
+};
+
 export class LeagueTracker {
   // Keyed permanently by teamId
-  private records: Map<
-    string | number,
-    { name: string; w: number; l: number; t: number; pf: number; pa: number }
-  > = new Map();
+  private records: Map<string | number, TeamData> = new Map();
 
   private mode: TrackerMode;
 
@@ -101,15 +142,14 @@ export class LeagueTracker {
     this.mode = options.mode ?? 'median';
   }
 
-  private getOrCreate(teamId: string | number, currentName: string) {
+  private getOrCreate(teamId: string | number, currentName: string): TeamData {
     if (!this.records.has(teamId)) {
       this.records.set(teamId, {
         name: currentName,
-        w: 0,
-        l: 0,
-        t: 0,
+        h2h: emptyRecord(),
         pf: 0,
-        pa: 0,
+        paOpp: 0,
+        paMedian: 0,
       });
     }
     const record = this.records.get(teamId)!;
@@ -127,20 +167,12 @@ export class LeagueTracker {
       const t2 = this.getOrCreate(team2.teamId, team2.teamName);
 
       t1.pf += team1.score;
-      t1.pa += team2.score;
+      t1.paOpp += team2.score;
       t2.pf += team2.score;
-      t2.pa += team1.score;
+      t2.paOpp += team1.score;
 
-      if (team1.score > team2.score) {
-        t1.w++;
-        t2.l++;
-      } else if (team2.score > team1.score) {
-        t2.w++;
-        t1.l++;
-      } else {
-        t1.t++;
-        t2.t++;
-      }
+      addResult(t1.h2h, resultFrom(team1.score, team2.score));
+      addResult(t2.h2h, resultFrom(team2.score, team1.score));
 
       weeklyScores.push(
         { id: team1.teamId, score: team1.score },
@@ -154,34 +186,36 @@ export class LeagueTracker {
     // 3. Process Median Matchup
     if (this.mode === 'median') {
       for (const { id, score } of weeklyScores) {
-        const record = this.records.get(id)!;
-        record.pa += median;
-
-        if (score > median) {
-          record.w++;
-        } else if (score < median) {
-          record.l++;
-        } else {
-          record.t++;
-        }
+        const team = this.records.get(id)!;
+        if (!team.median) team.median = emptyRecord();
+        team.paMedian += median;
+        addResult(team.median, resultFrom(score, median));
       }
     }
   }
 
   public getStandings(): TeamStanding[] {
+    const useMedian = this.mode === 'median';
     return Array.from(this.records.entries())
       .map(([teamId, stats]) => {
-        const total = stats.w + stats.l + stats.t;
-        const winPct = total > 0 ? (stats.w + 0.5 * stats.t) / total : 0;
+        const median = stats.median ?? emptyRecord();
+        const combined: RawRecord = {
+          w: stats.h2h.w + median.w,
+          l: stats.h2h.l + median.l,
+          t: stats.h2h.t + median.t,
+        };
+        const pa = stats.paOpp + (useMedian ? stats.paMedian : 0);
         return {
           teamId,
           name: stats.name,
-          w: stats.w,
-          l: stats.l,
-          t: stats.t,
+          w: combined.w,
+          l: combined.l,
+          t: combined.t,
           pf: Number(stats.pf.toFixed(2)),
-          pa: Number(stats.pa.toFixed(2)),
-          winPct,
+          pa: Number(pa.toFixed(2)),
+          winPct: recordWinPct(combined),
+          h2h: toTeamRecord(stats.h2h),
+          median: useMedian ? toTeamRecord(median) : undefined,
         };
       })
       .sort((a, b) => b.winPct - a.winPct || b.w - a.w || b.pf - a.pf);

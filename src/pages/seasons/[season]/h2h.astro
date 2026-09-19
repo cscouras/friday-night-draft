@@ -12,24 +12,24 @@ export function getStaticPaths() {
 
 const { season } = Astro.props as { season: Season };
 
-const medianTracker = new LeagueTracker();
+const leagueTracker = new LeagueTracker();
 const h2hTracker = new LeagueTracker({ mode: 'h2h' });
 
 for (const week of season.weeks) {
-	medianTracker.processWeek(week.matchups);
+	leagueTracker.processWeek(week.matchups);
 	h2hTracker.processWeek(week.matchups);
 }
 
-const medianStandings = medianTracker.getStandings();
+const leagueStandings = leagueTracker.getStandings();
 const h2hStandings = h2hTracker.getStandings();
 
 const h2hRankById = new Map(h2hStandings.map((t, i) => [t.teamId, i]));
 
-const rows = medianStandings.map((med, medianRank) => {
-	const h2hRank = h2hRankById.get(med.teamId) ?? medianRank;
-	const h2h = h2hRankById.has(med.teamId) ? h2hStandings[h2hRank] : null;
-	const movement = medianRank - h2hRank;
-	return { med, medianRank, h2h, h2hRank, movement };
+const rows = leagueStandings.map((team, leagueRank) => {
+	const h2hRank = h2hRankById.get(team.teamId) ?? leagueRank;
+	const h2h = h2hRankById.has(team.teamId) ? h2hStandings[h2hRank] : null;
+	const movement = leagueRank - h2hRank;
+	return { team, leagueRank, h2h, h2hRank, movement };
 });
 
 const record = (w, l, t) => (t > 0 ? `${w}-${l}-${t}` : `${w}-${l}`);
@@ -45,20 +45,20 @@ const record = (w, l, t) => (t > 0 ? `${w}-${l}-${t}` : `${w}-${l}`);
 			<h1>H2H What-If</h1>
 			<p class="subtitle">
 				How {season.label} standings would shake out without the median
-				matchup — head-to-head only, benchmarked against today's median
-				standings.
+				matchup — head-to-head only, benchmarked against today's standings.
 			</p>
 		</header>
 		<div class="table-wrap">
 			<table>
 				<thead>
 					<tr>
-						<th class="rank-col">Median #</th>
+						<th class="rank-col">League #</th>
 						<th>Team</th>
-						<th class="numeric">Median Rec</th>
-						<th class="numeric">Median Win %</th>
+						<th class="numeric">League Rec</th>
+						<th class="numeric">League Win %</th>
 						<th class="numeric">H2H Rec</th>
 						<th class="numeric">H2H Win %</th>
+						<th class="numeric">Med Rec</th>
 						<th class="numeric">PF</th>
 						<th class="numeric">Δ Rank</th>
 					</tr>
@@ -67,13 +67,13 @@ const record = (w, l, t) => (t > 0 ? `${w}-${l}-${t}` : `${w}-${l}`);
 					{
 						rows.map((row) => (
 							<tr>
-								<td class="rank-col">{row.medianRank + 1}</td>
-								<td><strong>{row.med.name}</strong></td>
+								<td class="rank-col">{row.leagueRank + 1}</td>
+								<td><strong>{row.team.name}</strong></td>
 								<td class="numeric">
-									{record(row.med.w, row.med.l, row.med.t)}
+									{record(row.team.w, row.team.l, row.team.t)}
 								</td>
 								<td class="numeric">
-									{(row.med.winPct * 100).toFixed(1)}%
+									{(row.team.winPct * 100).toFixed(1)}%
 								</td>
 								<td class="numeric">
 									{row.h2h
@@ -83,7 +83,16 @@ const record = (w, l, t) => (t > 0 ? `${w}-${l}-${t}` : `${w}-${l}`);
 								<td class="numeric">
 									{row.h2h ? (row.h2h.winPct * 100).toFixed(1) : '–'}%
 								</td>
-								<td class="numeric">{row.med.pf.toFixed(2)}</td>
+								<td class="numeric">
+									{row.team.median
+										? record(
+												row.team.median.w,
+												row.team.median.l,
+												row.team.median.t,
+											)
+										: '–'}
+								</td>
+								<td class="numeric">{row.team.pf.toFixed(2)}</td>
 								<td class="numeric">
 									<span
 										class={`delta ${row.movement > 0 ? 'up' : row.movement < 0 ? 'down' : 'same'}`}

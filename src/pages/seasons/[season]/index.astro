@@ -20,6 +20,7 @@ for (const week of season.weeks) {
 
 const standings = tracker.getStandings();
 const totalWeeks = season.weeks.length;
+const record = (w, l, t) => (t > 0 ? `${w}-${l}-${t}` : `${w}-${l}`);
 ---
 
 <Layout title={`${season.label} | Median Standings | Friday Night Draft`}>
@@ -54,6 +55,8 @@ const totalWeeks = season.weeks.length;
 						<th>Team</th>
 						<th class="numeric">Record</th>
 						<th class="numeric">Win %</th>
+						<th class="numeric">H2H Rec</th>
+						<th class="numeric">Med Rec</th>
 						<th class="numeric">PF</th>
 						<th class="numeric">PA</th>
 					</tr>
@@ -70,6 +73,13 @@ const totalWeeks = season.weeks.length;
 									{team.w}-{team.l}-{team.t}
 								</td>
 								<td class="numeric">{(team.winPct * 100).toFixed(1)}%</td>
+								<td class="numeric">
+									{record(team.h2h.w, team.h2h.l, team.h2h.t)}
+								</td>
+								<td class="numeric">
+									{team.median &&
+										record(team.median.w, team.median.l, team.median.t)}
+								</td>
 								<td class="numeric">{team.pf.toFixed(2)}</td>
 								<td class="numeric">{team.pa.toFixed(2)}</td>
 							</tr>
