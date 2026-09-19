@@ -1,6 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { seasons } from '../data/seasons';
+import { getWhatIf } from '../lib/whatif';
+
+const whatIf = new Map(seasons.map((s) => [s.id, getWhatIf(s)]));
 ---
 
 <Layout title="Friday Night Draft | Median Scoring">
@@ -11,12 +14,28 @@ import { seasons } from '../data/seasons';
 		</header>
 		<div class="seasons">
 			{
-				seasons.map((s) => (
-					<a class="card" href={`/seasons/${s.id}`}>
-						<strong>{s.label}</strong>
-						<span>{s.weeks.length} Completed {s.weeks.length === 1 ? 'Week' : 'Weeks'}</span>
-					</a>
-				))
+				seasons.map((s) => {
+					const { movers, rows } = whatIf.get(s.id)!;
+					return (
+						<div class="card">
+							<a class="card-main" href={`/seasons/${s.id}`}>
+								<strong>{s.label}</strong>
+								<span>{s.weeks.length} Completed {s.weeks.length === 1 ? 'Week' : 'Weeks'}</span>
+							</a>
+							{
+								s.complete && (
+									<a class="card-whatif" href={`/seasons/${s.id}/h2h`}>
+										Median What-If:
+										{movers.length === 0
+											? ' Standings unchanged'
+											: ` ${movers.length} of ${rows.length} teams would've finished differently`}
+										{' '}→
+									</a>
+								)
+							}
+						</div>
+					);
+				})
 			}
 		</div>
 	</div>
@@ -35,14 +54,29 @@ import { seasons } from '../data/seasons';
 			background-color: var(--surface);
 			color: var(--text);
 			border-radius: 8px;
-			text-decoration: none;
 		}
 		.card:hover {
 			background-color: var(--row-hover);
 		}
-		.card span {
+		.card-main {
+			display: flex;
+			flex-direction: column;
+			gap: 0.4rem;
+			color: var(--text);
+			text-decoration: none;
+		}
+		.card-main strong {
+			display: block;
+		}
+		.card-main span {
 			color: var(--text-muted);
 			font-size: 0.85rem;
+		}
+		.card-whatif {
+			margin-top: 0.9rem;
+			color: var(--link);
+			font-size: 0.85rem;
+			text-decoration: none;
 		}
 	</style>
 </Layout>
