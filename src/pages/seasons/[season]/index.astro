@@ -1,0 +1,119 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { LeagueTracker } from '../../../lib/tracker';
+import { seasons, type Season } from '../../../data/seasons';
+
+export function getStaticPaths() {
+	return seasons.map((s) => ({
+		params: { season: s.id },
+		props: { season: s },
+	}));
+}
+
+const { season } = Astro.props as { season: Season };
+
+const tracker = new LeagueTracker();
+
+for (const week of season.weeks) {
+	tracker.processWeek(week.matchups);
+}
+
+const standings = tracker.getStandings();
+const totalWeeks = season.weeks.length;
+---
+
+<Layout title={`${season.label} | Median Standings | Friday Night Draft`}>
+	<div class="container">
+		<nav>
+			<a href="/">← All Seasons</a>
+			<a href={`/seasons/${season.id}/h2h`}>H2H What-If →</a>
+		</nav>
+		<header>
+			<h1>{season.label}</h1>
+			<p class="subtitle">
+				League Median Standings ({totalWeeks} Completed {totalWeeks === 1 ? 'Week' : 'Weeks'})
+			</p>
+		</header>
+		<div class="links">
+			{
+				season.weeks.map((w) => (
+					<a class="chip" href={`/seasons/${season.id}/weeks/${w.week}`}>
+						Week {w.week} Results →
+					</a>
+				))
+			}
+			<a class="chip chip-accent" href={`/seasons/${season.id}/progress`}>
+				Running Standings →
+			</a>
+		</div>
+		<div class="table-wrap">
+			<table>
+				<thead>
+					<tr>
+						<th class="rank-col">#</th>
+						<th>Team</th>
+						<th class="numeric">Record</th>
+						<th class="numeric">Win %</th>
+						<th class="numeric">PF</th>
+						<th class="numeric">PA</th>
+					</tr>
+				</thead>
+				<tbody>
+					{
+						standings.map((team, idx) => (
+							<tr>
+								<td class="rank-col">{idx + 1}</td>
+								<td>
+									<strong>{team.name}</strong>
+								</td>
+								<td class="numeric">
+									{team.w}-{team.l}-{team.t}
+								</td>
+								<td class="numeric">{(team.winPct * 100).toFixed(1)}%</td>
+								<td class="numeric">{team.pf.toFixed(2)}</td>
+								<td class="numeric">{team.pa.toFixed(2)}</td>
+							</tr>
+						))
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<style>
+		nav {
+			display: flex;
+			gap: 1rem;
+			margin-bottom: 1.5rem;
+		}
+		nav a {
+			color: var(--link);
+			text-decoration: none;
+		}
+		.links {
+			margin: 1rem 0;
+			display: flex;
+			gap: 0.5rem;
+			flex-wrap: wrap;
+		}
+		.chip {
+			padding: 4px 10px;
+			background-color: var(--surface);
+			color: var(--link);
+			border-radius: 4px;
+			text-decoration: none;
+			font-size: 0.85rem;
+		}
+		.chip:hover {
+			text-decoration: underline;
+		}
+		.chip-accent {
+			background-color: var(--header);
+			color: var(--text);
+		}
+		.rank-col {
+			width: 50px;
+			color: var(--text-muted);
+		}
+	</style>
+</Layout>

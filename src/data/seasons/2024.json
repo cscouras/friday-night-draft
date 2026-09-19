@@ -1,0 +1,977 @@
+[
+  {
+    "week": 1,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Ya Gotta Bolieve!",
+          "score": 105.48
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "$182 on 3 Guys",
+          "score": 109.76
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Blank Spase (Mike’s Version)",
+          "score": 131.86
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 112.68
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 100.32
+        },
+        "team2": {
+          "teamId": 4,
+          "teamName": "Dak Attack",
+          "score": 119.96
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 106.14
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 91.22
+        }
+      },
+      {
+        "team1": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 108.38
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "Gay for Flay (no homo)",
+          "score": 96.6
+        }
+      }
+    ]
+  },
+  {
+    "week": 2,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Ya Gotta Bolieve!",
+          "score": 130.24
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 97.96
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Blank Spase (Mike’s Version)",
+          "score": 118.34
+        },
+        "team2": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 93.54
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 127.08
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "$182 on 3 Guys",
+          "score": 113.82
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "Dak Attack",
+          "score": 124.02
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 73.56
+        }
+      },
+      {
+        "team1": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 110.22
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "Gay for Flay (no homo)",
+          "score": 83.68
+        }
+      }
+    ]
+  },
+  {
+    "week": 3,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Ya Gotta Bolieve!",
+          "score": 105.58
+        },
+        "team2": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 123.18
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Blank Spase (Mike’s Version)",
+          "score": 164.56
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "Gay for Flay (no homo)",
+          "score": 64.16
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 114.08
+        },
+        "team2": {
+          "teamId": 4,
+          "teamName": "Dak Attack",
+          "score": 86.36
+        }
+      },
+      {
+        "team1": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 112.04
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "$182 on 3 Guys",
+          "score": 87.56
+        }
+      },
+      {
+        "team1": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 55.88
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 114.94
+        }
+      }
+    ]
+  },
+  {
+    "week": 4,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Ya Gotta Bolieve!",
+          "score": 73.96
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 100.62
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Blank Spase (Mike’s Version)",
+          "score": 134.22
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 75.54
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 119.3
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 86.4
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 114
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "$182 on 3 Guys",
+          "score": 108.28
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "Dak Attack",
+          "score": 120.84
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "Gay for Flay (no homo)",
+          "score": 84.96
+        }
+      }
+    ]
+  },
+  {
+    "week": 5,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Ya Gotta Bolieve!",
+          "score": 113.34
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 117.94
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Blank Spase (Mike’s Version)",
+          "score": 133.72
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 83.86
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 149.02
+        },
+        "team2": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 86.54
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "Dak Attack",
+          "score": 128.38
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 79.3
+        }
+      },
+      {
+        "team1": {
+          "teamId": 8,
+          "teamName": "Gay for Flay (no homo)",
+          "score": 108.56
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "$182 on 3 Guys",
+          "score": 146.18
+        }
+      }
+    ]
+  },
+  {
+    "week": 6,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Ya Gotta Bolieve!",
+          "score": 108.46
+        },
+        "team2": {
+          "teamId": 1,
+          "teamName": "Blank Spase (Mike’s Version)",
+          "score": 131.46
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 137.12
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "Gay for Flay (no homo)",
+          "score": 129.12
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 99.2
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 145.3
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "Dak Attack",
+          "score": 64.92
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 74.36
+        }
+      },
+      {
+        "team1": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 108.9
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "$182 on 3 Guys",
+          "score": 89.42
+        }
+      }
+    ]
+  },
+  {
+    "week": 7,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Ya Gotta Bolieve!",
+          "score": 143.68
+        },
+        "team2": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 93.7
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Blank Spase (Mike’s Version)",
+          "score": 84.74
+        },
+        "team2": {
+          "teamId": 4,
+          "teamName": "Dak Attack",
+          "score": 81.98
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 135.64
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 70.76
+        }
+      },
+      {
+        "team1": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 112.82
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "Gay for Flay (no homo)",
+          "score": 68.3
+        }
+      },
+      {
+        "team1": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 147.16
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "$182 on 3 Guys",
+          "score": 77.94
+        }
+      }
+    ]
+  },
+  {
+    "week": 8,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Ya Gotta Bolieve!",
+          "score": 92.54
+        },
+        "team2": {
+          "teamId": 4,
+          "teamName": "Dak Attack",
+          "score": 133.62
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Blank Spase (Mike’s Version)",
+          "score": 129.1
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "$182 on 3 Guys",
+          "score": 92.86
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 138.36
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 123.56
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 98.4
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "Gay for Flay (no homo)",
+          "score": 111.76
+        }
+      },
+      {
+        "team1": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 126.92
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 106.1
+        }
+      }
+    ]
+  },
+  {
+    "week": 9,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Ya Gotta Bolieve!",
+          "score": 79.46
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "Gay for Flay (no homo)",
+          "score": 101.32
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Blank Spase (Mike’s Version)",
+          "score": 139.66
+        },
+        "team2": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 104.4
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 106.3
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 108.9
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "Dak Attack",
+          "score": 126.72
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "$182 on 3 Guys",
+          "score": 110.32
+        }
+      },
+      {
+        "team1": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 97.9
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 124.38
+        }
+      }
+    ]
+  },
+  {
+    "week": 10,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Ya Gotta Bolieve!",
+          "score": 108.54
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "$182 on 3 Guys",
+          "score": 96.62
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Blank Spase (Mike’s Version)",
+          "score": 158.18
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 113.2
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 123.8
+        },
+        "team2": {
+          "teamId": 4,
+          "teamName": "Dak Attack",
+          "score": 92.72
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 75.04
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 111.38
+        }
+      },
+      {
+        "team1": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 88.94
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "Gay for Flay (no homo)",
+          "score": 105.4
+        }
+      }
+    ]
+  },
+  {
+    "week": 11,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Ya Gotta Bolieve!",
+          "score": 164.88
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 105.34
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Blank Spase (Mike’s Version)",
+          "score": 88.34
+        },
+        "team2": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 119.14
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 116.68
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "$182 on 3 Guys",
+          "score": 96.24
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "Dak Attack",
+          "score": 113.76
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 130.58
+        }
+      },
+      {
+        "team1": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 110.64
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "Gay for Flay (no homo)",
+          "score": 132.14
+        }
+      }
+    ]
+  },
+  {
+    "week": 12,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Ya Gotta Bolieve!",
+          "score": 139.52
+        },
+        "team2": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 101.98
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Blank Spase (Mike’s Version)",
+          "score": 118.2
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "Gay for Flay (no homo)",
+          "score": 117.92
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 145.76
+        },
+        "team2": {
+          "teamId": 4,
+          "teamName": "Dak Attack",
+          "score": 75.12
+        }
+      },
+      {
+        "team1": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 73.46
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "$182 on 3 Guys",
+          "score": 70.56
+        }
+      },
+      {
+        "team1": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 99.7
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 123.76
+        }
+      }
+    ]
+  },
+  {
+    "week": 13,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Ya Gotta Bolieve!",
+          "score": 107.86
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 103.12
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Blank Spase (Mike’s Version)",
+          "score": 138.74
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 144.7
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 125.08
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 162.02
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 80.9
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "$182 on 3 Guys",
+          "score": 112.26
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "Dak Attack",
+          "score": 99.98
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "Gay for Flay (no homo)",
+          "score": 117.36
+        }
+      }
+    ]
+  },
+  {
+    "week": 14,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Ya Gotta Bolieve!",
+          "score": 102.06
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 146.88
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Blank Spase (Mike’s Version)",
+          "score": 142.24
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 109.52
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 96.72
+        },
+        "team2": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 104.1
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "Dak Attack",
+          "score": 94.72
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 126.18
+        }
+      },
+      {
+        "team1": {
+          "teamId": 8,
+          "teamName": "Gay for Flay (no homo)",
+          "score": 135.54
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "$182 on 3 Guys",
+          "score": 117.56
+        }
+      }
+    ]
+  },
+  {
+    "week": 15,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Ya Gotta Bolieve!",
+          "score": 128.46
+        },
+        "team2": {
+          "teamId": 1,
+          "teamName": "Blank Spase (Mike’s Version)",
+          "score": 114.74
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 118.9
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "Gay for Flay (no homo)",
+          "score": 106.16
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 101.96
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 112.98
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "Dak Attack",
+          "score": 130.28
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 131.9
+        }
+      },
+      {
+        "team1": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 90.14
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "$182 on 3 Guys",
+          "score": 98.44
+        }
+      }
+    ]
+  }
+]

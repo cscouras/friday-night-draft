@@ -1,17 +1,22 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import data from '../../data/matchups.json';
-import { getWeeklyAudit } from '../../lib/tracker';
+import Layout from '../../../../layouts/Layout.astro';
+import { getWeeklyAudit } from '../../../../lib/tracker';
+import { seasons, type Season, type WeekData } from '../../../../data/seasons';
 
 export function getStaticPaths() {
-	return data.map((w) => ({
-		params: { week: w.week.toString() },
-		props: { weekNumber: w.week, weekData: w },
-	}));
+	return seasons.flatMap((s) =>
+		s.weeks.map((w) => ({
+			params: { season: s.id, week: w.week.toString() },
+			props: { season: s, weekNumber: w.week, weekData: w },
+		}))
+	);
 }
 
-const { week } = Astro.params;
-const { weekNumber, weekData } = Astro.props;
+const { season, weekNumber, weekData } = Astro.props as {
+	season: Season;
+	weekNumber: number;
+	weekData: WeekData;
+};
 
 const { median, rows } = getWeeklyAudit(weekData.matchups);
 const sorted = rows.sort((a, b) => b.score - a.score);
@@ -21,11 +26,11 @@ const resultClass = (r) => (r === 'W' ? 'w' : r === 'L' ? 'l' : 't');
 const tieBreaker = () => sorted.some((r) => r.h2h === 'T' || r.med === 'T');
 ---
 
-<Layout title={`Week ${weekNumber} Results | Friday Night Draft`}>
+<Layout title={`Week ${weekNumber} Results | ${season.label} | Friday Night Draft`}>
 	<div class="container">
 		<nav>
-			<a href="/">← Back to Standings</a>
-			<a href="/progress">Running Standings →</a>
+			<a href={`/seasons/${season.id}`}>← Back to Standings</a>
+			<a href={`/seasons/${season.id}/progress`}>Running Standings →</a>
 		</nav>
 		<header>
 			<h1>Week {weekNumber} Results</h1>

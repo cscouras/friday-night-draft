@@ -1,0 +1,976 @@
+[
+  {
+    "week": 1,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "The King's Unkindness",
+          "score": 129.46
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "McConkey Kong 64",
+          "score": 108.58
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Kittles… Chase the Rainbow",
+          "score": 106.92
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 60.92
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "It could be worse…",
+          "score": 103.66
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Mike Finnerty",
+          "score": 104.78
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "All Barkley No Bite",
+          "score": 106.08
+        },
+        "team2": {
+          "teamId": 4,
+          "teamName": "All the Swifts",
+          "score": 96.82
+        }
+      },
+      {
+        "team1": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 99.12
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "Risk of Disclosure",
+          "score": 114.48
+        }
+      }
+    ]
+  },
+  {
+    "week": 2,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "The King's Unkindness",
+          "score": 95.3
+        },
+        "team2": {
+          "teamId": 1,
+          "teamName": "Kittles… Chase the Rainbow",
+          "score": 112.88
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "It could be worse…",
+          "score": 124.92
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "Risk of Disclosure",
+          "score": 125.4
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "All Barkley No Bite",
+          "score": 109.2
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 105.68
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "All the Swifts",
+          "score": 107.64
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "McConkey Kong 64",
+          "score": 106.22
+        }
+      },
+      {
+        "team1": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 89.9
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Mike Finnerty",
+          "score": 92.54
+        }
+      }
+    ]
+  },
+  {
+    "week": 3,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "The King's Unkindness",
+          "score": 97.92
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 91.88
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Kittles… Chase the Rainbow",
+          "score": 101.26
+        },
+        "team2": {
+          "teamId": 4,
+          "teamName": "All the Swifts",
+          "score": 97.34
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "It could be worse…",
+          "score": 122.42
+        },
+        "team2": {
+          "teamId": 3,
+          "teamName": "All Barkley No Bite",
+          "score": 88.92
+        }
+      },
+      {
+        "team1": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 89.5
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "McConkey Kong 64",
+          "score": 103.16
+        }
+      },
+      {
+        "team1": {
+          "teamId": 6,
+          "teamName": "Risk of Disclosure",
+          "score": 120.32
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Mike Finnerty",
+          "score": 120.14
+        }
+      }
+    ]
+  },
+  {
+    "week": 4,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "The King's Unkindness",
+          "score": 103.88
+        },
+        "team2": {
+          "teamId": 4,
+          "teamName": "All the Swifts",
+          "score": 125.66
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Kittles… Chase the Rainbow",
+          "score": 101
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 114.82
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "It could be worse…",
+          "score": 127.46
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "McConkey Kong 64",
+          "score": 126.36
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "All Barkley No Bite",
+          "score": 127.76
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Mike Finnerty",
+          "score": 119.1
+        }
+      },
+      {
+        "team1": {
+          "teamId": 6,
+          "teamName": "Risk of Disclosure",
+          "score": 137.12
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 99.62
+        }
+      }
+    ]
+  },{
+    "week": 5,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "The King's Unkindness",
+          "score": 133.32
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 109.54
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Kittles… Chase the Rainbow",
+          "score": 132.92
+        },
+        "team2": {
+          "teamId": 2,
+          "teamName": "It could be worse…",
+          "score": 118.82
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "All Barkley No Bite",
+          "score": 122.66
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "Risk of Disclosure",
+          "score": 119.42
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "All the Swifts",
+          "score": 106.08
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 99.94
+        }
+      },
+      {
+        "team1": {
+          "teamId": 8,
+          "teamName": "McConkey Kong 64",
+          "score": 131.8
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Mike Finnerty",
+          "score": 98.5
+        }
+      }
+    ]
+  },
+  {
+    "week": 6,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "The King's Unkindness",
+          "score": 126.62
+        },
+        "team2": {
+          "teamId": 2,
+          "teamName": "It could be worse…",
+          "score": 73.3
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Kittles… Chase the Rainbow",
+          "score": 106.78
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Mike Finnerty",
+          "score": 109.62
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "All Barkley No Bite",
+          "score": 103.84
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 100.24
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "All the Swifts",
+          "score": 107.94
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 111.08
+        }
+      },
+      {
+        "team1": {
+          "teamId": 6,
+          "teamName": "Risk of Disclosure",
+          "score": 114.24
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "McConkey Kong 64",
+          "score": 103.74
+        }
+      }
+    ]
+  },
+  {
+    "week": 7,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "The King's Unkindness",
+          "score": 91.34
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Mike Finnerty",
+          "score": 118.14
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Kittles… Chase the Rainbow",
+          "score": 125.14
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "Risk of Disclosure",
+          "score": 159.98
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "It could be worse…",
+          "score": 129.68
+        },
+        "team2": {
+          "teamId": 4,
+          "teamName": "All the Swifts",
+          "score": 83.56
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "All Barkley No Bite",
+          "score": 78.32
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "McConkey Kong 64",
+          "score": 114.58
+        }
+      },
+      {
+        "team1": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 122
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 122.54
+        }
+      }
+    ]
+  },
+  {
+    "week": 8,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "The King's Unkindness",
+          "score": 115.62
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "Risk of Disclosure",
+          "score": 131.68
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Kittles… Chase the Rainbow",
+          "score": 140.66
+        },
+        "team2": {
+          "teamId": 3,
+          "teamName": "All Barkley No Bite",
+          "score": 128.28
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "It could be worse…",
+          "score": 88.52
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 122.34
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "All the Swifts",
+          "score": 108.62
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Mike Finnerty",
+          "score": 111.66
+        }
+      },
+      {
+        "team1": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 90
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "McConkey Kong 64",
+          "score": 116.96
+        }
+      }
+    ]
+  },
+  {
+    "week": 9,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "The King's Unkindness",
+          "score": 118.96
+        },
+        "team2": {
+          "teamId": 3,
+          "teamName": "All Barkley No Bite",
+          "score": 87.1
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Kittles… Chase the Rainbow",
+          "score": 106.1
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "McConkey Kong 64",
+          "score": 133.24
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "It could be worse…",
+          "score": 116.62
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 109.02
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "All the Swifts",
+          "score": 64.9
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "Risk of Disclosure",
+          "score": 109.56
+        }
+      },
+      {
+        "team1": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 137.2
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Mike Finnerty",
+          "score": 89.88
+        }
+      }
+    ]
+  },
+  {
+    "week": 10,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "The King's Unkindness",
+          "score": 116.84
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "McConkey Kong 64",
+          "score": 139.8
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Kittles… Chase the Rainbow",
+          "score": 108.5
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 116.9
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "It could be worse…",
+          "score": 126.04
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Mike Finnerty",
+          "score": 67.12
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "All Barkley No Bite",
+          "score": 72.02
+        },
+        "team2": {
+          "teamId": 4,
+          "teamName": "All the Swifts",
+          "score": 105
+        }
+      },
+      {
+        "team1": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 108.7
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "Risk of Disclosure",
+          "score": 151.6
+        }
+      }
+    ]
+  },
+  {
+    "week": 11,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "The King's Unkindness",
+          "score": 118.82
+        },
+        "team2": {
+          "teamId": 1,
+          "teamName": "Kittles… Chase the Rainbow",
+          "score": 108.14
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "It could be worse…",
+          "score": 86.18
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "Risk of Disclosure",
+          "score": 85.74
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "All Barkley No Bite",
+          "score": 162.62
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 89.74
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "All the Swifts",
+          "score": 101.72
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "McConkey Kong 64",
+          "score": 109
+        }
+      },
+      {
+        "team1": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 95.92
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Mike Finnerty",
+          "score": 79.5
+        }
+      }
+    ]
+  },
+  {
+    "week": 12,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "The King's Unkindness",
+          "score": 84.72
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 122.78
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Kittles… Chase the Rainbow",
+          "score": 93.48
+        },
+        "team2": {
+          "teamId": 4,
+          "teamName": "All the Swifts",
+          "score": 111.96
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "It could be worse…",
+          "score": 112.92
+        },
+        "team2": {
+          "teamId": 3,
+          "teamName": "All Barkley No Bite",
+          "score": 95.14
+        }
+      },
+      {
+        "team1": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 132.66
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "McConkey Kong 64",
+          "score": 107.02
+        }
+      },
+      {
+        "team1": {
+          "teamId": 6,
+          "teamName": "Risk of Disclosure",
+          "score": 104.76
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Mike Finnerty",
+          "score": 118.56
+        }
+      }
+    ]
+  },
+  {
+    "week": 13,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "The King's Unkindness",
+          "score": 107.64
+        },
+        "team2": {
+          "teamId": 4,
+          "teamName": "All the Swifts",
+          "score": 105.1
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Kittles… Chase the Rainbow",
+          "score": 122.24
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 144.04
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "It could be worse…",
+          "score": 71.52
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "McConkey Kong 64",
+          "score": 137.72
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "All Barkley No Bite",
+          "score": 84.16
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Mike Finnerty",
+          "score": 89.6
+        }
+      },
+      {
+        "team1": {
+          "teamId": 6,
+          "teamName": "Risk of Disclosure",
+          "score": 114.68
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 101.34
+        }
+      }
+    ]
+  },
+  {
+    "week": 14,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "The King's Unkindness",
+          "score": 114.76
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 89.96
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Kittles… Chase the Rainbow",
+          "score": 95.9
+        },
+        "team2": {
+          "teamId": 2,
+          "teamName": "It could be worse…",
+          "score": 93.14
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "All Barkley No Bite",
+          "score": 132.06
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "Risk of Disclosure",
+          "score": 113.66
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "All the Swifts",
+          "score": 105.54
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 89.12
+        }
+      },
+      {
+        "team1": {
+          "teamId": 8,
+          "teamName": "McConkey Kong 64",
+          "score": 131.04
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Mike Finnerty",
+          "score": 74.9
+        }
+      }
+    ]
+  },
+  {
+    "week": 15,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "The King's Unkindness",
+          "score": 125.2
+        },
+        "team2": {
+          "teamId": 2,
+          "teamName": "It could be worse…",
+          "score": 128.62
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Kittles… Chase the Rainbow",
+          "score": 135.56
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Mike Finnerty",
+          "score": 92.8
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "All Barkley No Bite",
+          "score": 88.48
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 106.5
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "All the Swifts",
+          "score": 122.06
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 110.32
+        }
+      },
+      {
+        "team1": {
+          "teamId": 6,
+          "teamName": "Risk of Disclosure",
+          "score": 146.8
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "McConkey Kong 64",
+          "score": 125.52
+        }
+      }
+    ]
+  }
+]

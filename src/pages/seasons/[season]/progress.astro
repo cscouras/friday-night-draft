@@ -1,7 +1,16 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { LeagueTracker, type TeamStanding } from '../lib/tracker';
-import seasonData from '../data/matchups.json';
+import Layout from '../../../layouts/Layout.astro';
+import { LeagueTracker, type TeamStanding } from '../../../lib/tracker';
+import { seasons, type Season } from '../../../data/seasons';
+
+export function getStaticPaths() {
+	return seasons.map((s) => ({
+		params: { season: s.id },
+		props: { season: s },
+	}));
+}
+
+const { season } = Astro.props as { season: Season };
 
 interface Snapshot {
 	week: number;
@@ -10,7 +19,7 @@ interface Snapshot {
 
 const snapshots: Snapshot[] = [];
 const tracker = new LeagueTracker();
-for (const w of seasonData) {
+for (const w of season.weeks) {
 	tracker.processWeek(w.matchups);
 	snapshots.push({ week: w.week, standings: tracker.getStandings() });
 }
@@ -33,11 +42,11 @@ const record = (s: TeamStanding | null) => {
 };
 ---
 
-<Layout title="Running Standings | Friday Night Draft">
+<Layout title={`Running Standings | ${season.label} | Friday Night Draft`}>
 	<div class="container wide">
 		<nav>
-			<a href="/">← Back to Standings</a>
-			<a href="/weeks/1">Week Results →</a>
+			<a href={`/seasons/${season.id}`}>← Back to Standings</a>
+			<a href={`/seasons/${season.id}/weeks/1`}>Week Results →</a>
 		</nav>
 		<header>
 			<h1>Running Standings</h1>

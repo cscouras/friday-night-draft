@@ -1,0 +1,141 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { LeagueTracker } from '../../../lib/tracker';
+import { seasons, type Season } from '../../../data/seasons';
+
+export function getStaticPaths() {
+	return seasons.map((s) => ({
+		params: { season: s.id },
+		props: { season: s },
+	}));
+}
+
+const { season } = Astro.props as { season: Season };
+
+const medianTracker = new LeagueTracker();
+const h2hTracker = new LeagueTracker({ mode: 'h2h' });
+
+for (const week of season.weeks) {
+	medianTracker.processWeek(week.matchups);
+	h2hTracker.processWeek(week.matchups);
+}
+
+const medianStandings = medianTracker.getStandings();
+const h2hStandings = h2hTracker.getStandings();
+
+const h2hRankById = new Map(h2hStandings.map((t, i) => [t.teamId, i]));
+
+const rows = medianStandings.map((med, medianRank) => {
+	const h2hRank = h2hRankById.get(med.teamId) ?? medianRank;
+	const h2h = h2hRankById.has(med.teamId) ? h2hStandings[h2hRank] : null;
+	const movement = medianRank - h2hRank;
+	return { med, medianRank, h2h, h2hRank, movement };
+});
+
+const record = (w, l, t) => (t > 0 ? `${w}-${l}-${t}` : `${w}-${l}`);
+---
+
+<Layout title={`H2H What-If | ${season.label} | Friday Night Draft`}>
+	<div class="container">
+		<nav>
+			<a href={`/seasons/${season.id}`}>← Back to Standings</a>
+			<a href={`/seasons/${season.id}/progress`}>Running Standings →</a>
+		</nav>
+		<header>
+			<h1>H2H What-If</h1>
+			<p class="subtitle">
+				How {season.label} standings would shake out without the median
+				matchup — head-to-head only, benchmarked against today's median
+				standings.
+			</p>
+		</header>
+		<div class="table-wrap">
+			<table>
+				<thead>
+					<tr>
+						<th class="rank-col">Median #</th>
+						<th>Team</th>
+						<th class="numeric">Median Rec</th>
+						<th class="numeric">Median Win %</th>
+						<th class="numeric">H2H Rec</th>
+						<th class="numeric">H2H Win %</th>
+						<th class="numeric">PF</th>
+						<th class="numeric">Δ Rank</th>
+					</tr>
+				</thead>
+				<tbody>
+					{
+						rows.map((row) => (
+							<tr>
+								<td class="rank-col">{row.medianRank + 1}</td>
+								<td><strong>{row.med.name}</strong></td>
+								<td class="numeric">
+									{record(row.med.w, row.med.l, row.med.t)}
+								</td>
+								<td class="numeric">
+									{(row.med.winPct * 100).toFixed(1)}%
+								</td>
+								<td class="numeric">
+									{row.h2h
+										? record(row.h2h.w, row.h2h.l, row.h2h.t)
+										: '–'}
+								</td>
+								<td class="numeric">
+									{row.h2h ? (row.h2h.winPct * 100).toFixed(1) : '–'}%
+								</td>
+								<td class="numeric">{row.med.pf.toFixed(2)}</td>
+								<td class="numeric">
+									<span
+										class={`delta ${row.movement > 0 ? 'up' : row.movement < 0 ? 'down' : 'same'}`}
+									>
+										{row.movement > 0
+											? `↑${row.movement}`
+											: row.movement < 0
+												? `↓${Math.abs(row.movement)}`
+												: '—'}
+									</span>
+								</td>
+							</tr>
+						))
+					}
+				</tbody>
+			</table>
+		</div>
+		<p class="notes">
+			Δ Rank shows how many places a team would move (↑ higher, ↓ lower) if
+			median scoring were dropped for head-to-head results only.
+		</p>
+	</div>
+
+	<style>
+		nav {
+			display: flex;
+			gap: 1rem;
+			margin-bottom: 1.5rem;
+		}
+		nav a {
+			color: var(--link);
+			text-decoration: none;
+		}
+		.rank-col {
+			width: 70px;
+		}
+		.delta {
+			font-weight: bold;
+		}
+		.delta.up {
+			color: var(--win);
+		}
+		.delta.down {
+			color: var(--lose);
+		}
+		.delta.same {
+			color: var(--text-muted);
+		}
+		.notes {
+			color: var(--text-muted);
+			margin-top: 1rem;
+			font-size: 0.85rem;
+		}
+	</style>
+</Layout>

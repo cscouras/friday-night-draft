@@ -86,12 +86,20 @@ export function getWeeklyAudit(matchups: Matchup[]): {
   return { median, rows };
 }
 
+export type TrackerMode = 'median' | 'h2h';
+
 export class LeagueTracker {
   // Keyed permanently by teamId
   private records: Map<
     string | number,
     { name: string; w: number; l: number; t: number; pf: number; pa: number }
   > = new Map();
+
+  private mode: TrackerMode;
+
+  constructor(options: { mode?: TrackerMode } = {}) {
+    this.mode = options.mode ?? 'median';
+  }
 
   private getOrCreate(teamId: string | number, currentName: string) {
     if (!this.records.has(teamId)) {
@@ -144,16 +152,18 @@ export class LeagueTracker {
     const median = computeMedian(weeklyScores.map(({ score }) => score));
 
     // 3. Process Median Matchup
-    for (const { id, score } of weeklyScores) {
-      const record = this.records.get(id)!;
-      record.pa += median;
+    if (this.mode === 'median') {
+      for (const { id, score } of weeklyScores) {
+        const record = this.records.get(id)!;
+        record.pa += median;
 
-      if (score > median) {
-        record.w++;
-      } else if (score < median) {
-        record.l++;
-      } else {
-        record.t++;
+        if (score > median) {
+          record.w++;
+        } else if (score < median) {
+          record.l++;
+        } else {
+          record.t++;
+        }
       }
     }
   }
