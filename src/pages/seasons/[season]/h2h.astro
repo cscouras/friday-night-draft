@@ -32,7 +32,8 @@ const rows = leagueStandings.map((team, leagueRank) => {
 	return { team, leagueRank, h2h, h2hRank, movement };
 });
 
-const record = (w, l, t) => (t > 0 ? `${w}-${l}-${t}` : `${w}-${l}`);
+const record = (w: number, l: number, t: number) =>
+	(t > 0 ? `${w}-${l}-${t}` : `${w}-${l}`);
 ---
 
 <Layout title={`H2H What-If | ${season.label} | Friday Night Draft`}>

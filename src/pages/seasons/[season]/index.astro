@@ -20,7 +20,8 @@ for (const week of season.weeks) {
 
 const standings = tracker.getStandings();
 const totalWeeks = season.weeks.length;
-const record = (w, l, t) => (t > 0 ? `${w}-${l}-${t}` : `${w}-${l}`);
+const record = (w: number, l: number, t: number) =>
+	(t > 0 ? `${w}-${l}-${t}` : `${w}-${l}`);
 ---
 
 <Layout title={`${season.label} | Median Standings | Friday Night Draft`}>

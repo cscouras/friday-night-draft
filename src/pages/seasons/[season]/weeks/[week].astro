@@ -1,6 +1,6 @@
 ---
 import Layout from '../../../../layouts/Layout.astro';
-import { getWeeklyAudit } from '../../../../lib/tracker';
+import { getWeeklyAudit, type Result } from '../../../../lib/tracker';
 import { seasons, type Season, type WeekData } from '../../../../data/seasons';
 
 export function getStaticPaths() {
@@ -29,7 +29,7 @@ const nextWeek =
 const { median, rows } = getWeeklyAudit(weekData.matchups);
 const sorted = rows.sort((a, b) => b.score - a.score);
 
-const resultClass = (r) => (r === 'W' ? 'w' : r === 'L' ? 'l' : 't');
+const resultClass = (r: Result) => (r === 'W' ? 'w' : r === 'L' ? 'l' : 't');
 
 const tieBreaker = () => sorted.some((r) => r.h2h === 'T' || r.med === 'T');
 ---
