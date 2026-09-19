@@ -1,12 +1,13 @@
 ---
+import Layout from '../../layouts/Layout.astro';
 import data from '../../data/matchups.json';
 import { getWeeklyAudit } from '../../lib/tracker';
 
 export function getStaticPaths() {
-  return data.map((w) => ({
-    params: { week: w.week.toString() },
-    props: { weekNumber: w.week, weekData: w },
-  }));
+	return data.map((w) => ({
+		params: { week: w.week.toString() },
+		props: { weekNumber: w.week, weekData: w },
+	}));
 }
 
 const { week } = Astro.params;
@@ -15,110 +16,25 @@ const { weekNumber, weekData } = Astro.props;
 const { median, rows } = getWeeklyAudit(weekData.matchups);
 const sorted = rows.sort((a, b) => b.score - a.score);
 
-const tieBreaker = () =>
-  sorted.some((r) => r.h2h === 'T' || r.med === 'T');
+const resultClass = (r) => (r === 'W' ? 'w' : r === 'L' ? 'l' : 't');
+
+const tieBreaker = () => sorted.some((r) => r.h2h === 'T' || r.med === 'T');
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Week {weekNumber} Results | Friday Night Draft</title>
-		<style>
-			body {
-				font-family:
-					system-ui,
-					-apple-system,
-					BlinkMacSystemFont,
-					'Segoe UI',
-					Roboto,
-					sans-serif;
-				background-color: #0f172a;
-				color: #f8fafc;
-				margin: 0;
-				padding: 2rem 1rem;
-			}
-			.container {
-				max-width: 850px;
-				margin: 0 auto;
-			}
-			nav {
-				display: flex;
-				gap: 1rem;
-				margin-bottom: 1.5rem;
-			}
-			nav a {
-				color: #60a5fa;
-				text-decoration: none;
-			}
-			header {
-				margin-bottom: 1.5rem;
-			}
-			h1 {
-				font-size: 1.75rem;
-				margin: 0 0 0.25rem 0;
-			}
-			p.subtitle {
-				color: #94a3b8;
-				margin: 0;
-				font-size: 0.95rem;
-			}
-			table {
-				width: 100%;
-				border-collapse: collapse;
-				background-color: #1e293b;
-				border-radius: 8px;
-				overflow: hidden;
-			}
-			th,
-			td {
-				padding: 0.75rem 1rem;
-				text-align: left;
-			}
-			th {
-				background-color: #334155;
-				font-size: 0.85rem;
-				text-transform: uppercase;
-				letter-spacing: 0.05em;
-				color: #cbd5e1;
-			}
-			tr:nth-child(even) {
-				background-color: #162032;
-			}
-			tr:hover {
-				background-color: #243047;
-			}
-			td.numeric,
-			th.numeric {
-				text-align: right;
-			}
-			.result {
-				font-weight: bold;
-			}
-			.result.w {
-				color: #4ade80;
-			}
-			.result.l {
-				color: #f87171;
-			}
-			.result.t {
-				color: #fbbf24;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="container">
-			<nav>
-				<a href="/">← Back to Standings</a>
-				<a href="/progress">Running Standings →</a>
-			</nav>
-			<header>
-				<h1>Week {weekNumber} Results</h1>
-				<p class="subtitle">
-					League Median Cutoff: <strong>{median.toFixed(2)}</strong> · Verify
-					weekly scores and how each W and L was earned
-				</p>
-			</header>
+<Layout title={`Week ${weekNumber} Results | Friday Night Draft`}>
+	<div class="container">
+		<nav>
+			<a href="/">← Back to Standings</a>
+			<a href="/progress">Running Standings →</a>
+		</nav>
+		<header>
+			<h1>Week {weekNumber} Results</h1>
+			<p class="subtitle">
+				League Median Cutoff: <strong>{median.toFixed(2)}</strong> · Verify
+				weekly scores and how each W and L was earned
+			</p>
+		</header>
+		<div class="table-wrap">
 			<table>
 				<thead>
 					<tr>
@@ -136,16 +52,16 @@ const tieBreaker = () =>
 							<tr>
 								<td><strong>{row.name}</strong></td>
 								<td class="numeric">{row.score.toFixed(2)}</td>
-								<td style="color: #94a3b8;">
+								<td class="opp">
 									{row.opponent} ({row.oppScore.toFixed(2)})
 								</td>
 								<td class="numeric">
-									<span class={`result ${row.h2h === 'W' ? 'w' : row.h2h === 'L' ? 'l' : 't'}`}>
+									<span class={`result ${resultClass(row.h2h)}`}>
 										{row.h2h}
 									</span>
 								</td>
 								<td class="numeric">
-									<span class={`result ${row.med === 'W' ? 'w' : row.med === 'L' ? 'l' : 't'}`}>
+									<span class={`result ${resultClass(row.med)}`}>
 										{row.med}
 									</span>
 								</td>
@@ -158,14 +74,45 @@ const tieBreaker = () =>
 					}
 				</tbody>
 			</table>
-			{
-				tieBreaker() ? (
-					<p style="color: #94a3b8; margin-top: 1rem; font-size: 0.85rem;">
-						Ties (T) count as half a win/loss and are included in the
-						standings.
-					</p>
-				) : null
-			}
 		</div>
-	</body>
-</html>
+		{
+			tieBreaker() ? (
+				<p class="notes">
+					Ties (T) count as half a win/loss and are included in the standings.
+				</p>
+			) : null
+		}
+	</div>
+
+	<style>
+		nav {
+			display: flex;
+			gap: 1rem;
+			margin-bottom: 1.5rem;
+		}
+		nav a {
+			color: var(--link);
+			text-decoration: none;
+		}
+		.opp {
+			color: var(--text-muted);
+		}
+		.result {
+			font-weight: bold;
+		}
+		.result.w {
+			color: var(--win);
+		}
+		.result.l {
+			color: var(--lose);
+		}
+		.result.t {
+			color: var(--tie);
+		}
+		.notes {
+			color: var(--text-muted);
+			margin-top: 1rem;
+			font-size: 0.85rem;
+		}
+	</style>
+</Layout>
