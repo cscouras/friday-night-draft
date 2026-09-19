@@ -1,0 +1,248 @@
+---
+import '../styles/theme.css';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{title}</title>
+		<script is:inline>
+			(() => {
+				const KEY = 'theme';
+				const MODES = ['system', 'light', 'dark'];
+				const mq = window.matchMedia('(prefers-color-scheme: dark)');
+				const store =
+					typeof localStorage !== 'undefined' ? localStorage : null;
+
+				const read = () => {
+					try {
+						const v = store && store.getItem(KEY);
+						return v && MODES.includes(v) ? v : null;
+					} catch {
+						return null;
+					}
+				};
+
+				const write = (m) => {
+					try {
+						if (store) {
+							if (m === 'system') store.removeItem(KEY);
+							else store.setItem(KEY, m);
+						}
+					} catch {}
+				};
+
+				const humanize = (m) =>
+					m === 'system' ? 'System' : m[0].toUpperCase() + m.slice(1);
+
+				const renderLabel = (btn, m) => {
+					const span = btn.querySelector('.theme-label');
+					if (span) span.textContent = 'Theme: ' + humanize(m);
+				};
+
+				const reflect = (m) => {
+					const resolved = m === 'system' ? (mq.matches ? 'dark' : 'light') : m;
+					document.documentElement.setAttribute('data-theme', resolved);
+					document.documentElement.style.colorScheme = resolved;
+				};
+
+				let mode = read() || 'system';
+				reflect(mode);
+
+				mq.addEventListener('change', () => {
+					if (mode === 'system') reflect(mode);
+				});
+
+				window.addEventListener('storage', (e) => {
+					const v = e.newValue;
+					const next = v && MODES.includes(v) ? v : 'system';
+					if (next !== mode) {
+						mode = next;
+						reflect(mode);
+						const btn = document.getElementById('theme-toggle');
+						if (btn) renderLabel(btn, mode);
+					}
+				});
+
+				document.addEventListener('DOMContentLoaded', () => {
+					const btn = document.getElementById('theme-toggle');
+					if (!btn) return;
+					renderLabel(btn, mode);
+					btn.addEventListener('click', () => {
+						mode = MODES[(MODES.indexOf(mode) + 1) % MODES.length];
+						write(mode);
+						reflect(mode);
+						renderLabel(btn, mode);
+					});
+				});
+			})();
+		</script>
+		<style is:global>
+			* {
+				box-sizing: border-box;
+			}
+			body {
+				font-family:
+					system-ui,
+					-apple-system,
+					BlinkMacSystemFont,
+					'Segoe UI',
+					Roboto,
+					sans-serif;
+				background-color: var(--bg);
+				color: var(--text);
+				margin: 0;
+				padding: 2rem 1rem;
+			}
+			a {
+				color: var(--link);
+			}
+			.topbar {
+				max-width: 850px;
+				margin: 0 auto 1.5rem;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 1rem;
+			}
+			.site-name {
+				color: var(--text);
+				font-weight: 700;
+				font-size: 1.05rem;
+				text-decoration: none;
+			}
+			#theme-toggle {
+				font: inherit;
+				font-size: 0.85rem;
+				color: var(--text-muted);
+				background-color: var(--surface);
+				border: 1px solid var(--header);
+				border-radius: 999px;
+				padding: 0.35rem 0.85rem;
+				cursor: pointer;
+				display: inline-flex;
+				align-items: center;
+				gap: 0.4rem;
+			}
+			#theme-toggle:hover {
+				color: var(--text);
+				border-color: var(--link);
+			}
+			#theme-toggle .theme-icon {
+				width: 14px;
+				height: 14px;
+				display: none;
+			}
+			#theme-toggle .theme-icon.light {
+				display: inline-block;
+			}
+			:root[data-theme='dark'] #theme-toggle .theme-icon.light {
+				display: none;
+			}
+			:root[data-theme='dark'] #theme-toggle .theme-icon.dark {
+				display: inline-block;
+			}
+			.container {
+				max-width: 850px;
+				margin: 0 auto;
+			}
+			header {
+				margin-bottom: 1.5rem;
+			}
+			h1 {
+				font-size: 1.75rem;
+				margin: 0 0 0.25rem 0;
+			}
+			p.subtitle {
+				color: var(--text-muted);
+				margin: 0;
+				font-size: 0.95rem;
+			}
+			.table-wrap {
+				overflow-x: auto;
+			}
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				background-color: var(--surface);
+				border-radius: 8px;
+				overflow: hidden;
+			}
+			th,
+			td {
+				padding: 0.75rem 1rem;
+				text-align: left;
+			}
+			th {
+				background-color: var(--header);
+				font-size: 0.85rem;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				color: var(--text-header);
+			}
+			tr:nth-child(even) {
+				background-color: var(--row-alt);
+			}
+			tr:hover {
+				background-color: var(--row-hover);
+			}
+			td.numeric,
+			th.numeric {
+				text-align: right;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="topbar">
+			<a class="site-name" href="/">Friday Night Draft</a>
+			<button
+				id="theme-toggle"
+				type="button"
+				aria-label="Cycle theme: system, light, dark"
+			>
+				<svg
+					class="theme-icon light"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+				>
+					<circle cx="12" cy="12" r="5"></circle>
+					<line x1="12" y1="1" x2="12" y2="3"></line>
+					<line x1="12" y1="21" x2="12" y2="23"></line>
+					<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+					<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+					<line x1="1" y1="12" x2="3" y2="12"></line>
+					<line x1="21" y1="12" x2="23" y2="12"></line>
+					<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+					<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+				</svg>
+				<svg
+					class="theme-icon dark"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+				>
+					<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+				</svg>
+				<span class="theme-label">Theme: System</span>
+			</button>
+		</div>
+		<slot />
+	</body>
+</html>

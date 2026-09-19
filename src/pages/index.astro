@@ -1,10 +1,10 @@
 ---
+import Layout from '../layouts/Layout.astro';
 import { LeagueTracker } from '../lib/tracker';
 import seasonData from '../data/matchups.json';
 
 const tracker = new LeagueTracker();
 
-// Iterate through every completed week in the JSON array
 for (const week of seasonData) {
 	tracker.processWeek(week.matchups);
 }
@@ -13,104 +13,27 @@ const standings = tracker.getStandings();
 const totalWeeks = seasonData.length;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Friday Night Draft | Median Scoring</title>
-		<style>
-			body {
-				font-family:
-					system-ui,
-					-apple-system,
-					BlinkMacSystemFont,
-					'Segoe UI',
-					Roboto,
-					sans-serif;
-				background-color: #0f172a;
-				color: #f8fafc;
-				margin: 0;
-				padding: 2rem 1rem;
+<Layout title="Friday Night Draft | Median Scoring">
+	<div class="container">
+		<header>
+			<h1>Friday Night Draft</h1>
+			<p class="subtitle">
+				League Median Standings ({totalWeeks} Completed {totalWeeks === 1 ? 'Week' : 'Weeks'})
+			</p>
+		</header>
+		<div class="links">
+			{
+				seasonData.map((w) => (
+					<a class="chip" href={`/weeks/${w.week}`}>
+						Week {w.week} Results →
+					</a>
+				))
 			}
-			.container {
-				max-width: 850px;
-				margin: 0 auto;
-			}
-			header {
-				margin-bottom: 1.5rem;
-			}
-			h1 {
-				font-size: 1.75rem;
-				margin: 0 0 0.25rem 0;
-			}
-			p.subtitle {
-				color: #94a3b8;
-				margin: 0;
-				font-size: 0.95rem;
-			}
-			table {
-				width: 100%;
-				border-collapse: collapse;
-				background-color: #1e293b;
-				border-radius: 8px;
-				overflow: hidden;
-			}
-			th,
-			td {
-				padding: 0.75rem 1rem;
-				text-align: left;
-			}
-			th {
-				background-color: #334155;
-				font-size: 0.85rem;
-				text-transform: uppercase;
-				letter-spacing: 0.05em;
-				color: #cbd5e1;
-			}
-			tr:nth-child(even) {
-				background-color: #162032;
-			}
-			tr:hover {
-				background-color: #243047;
-			}
-			td.numeric,
-			th.numeric {
-				text-align: right;
-			}
-			.rank-col {
-				width: 50px;
-				color: #94a3b8;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="container">
-			<header>
-				<h1>Friday Night Draft</h1>
-				<p class="subtitle">
-					League Median Standings ({totalWeeks} Completed {
-						totalWeeks === 1 ? 'Week' : 'Weeks'
-					})
-				</p>
-			</header>
-			<div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-				{
-					seasonData.map((w) => (
-						<a
-							href={`/weeks/${w.week}`}
-							style="padding: 4px 10px; background: #1e293b; color: #60a5fa; border-radius: 4px; text-decoration: none; font-size: 0.85rem;"
-						>
-							Week {w.week} Results →
-						</a>
-					))
-				}
-				<a
-					href="/progress"
-					style="padding: 4px 10px; background: #334155; color: #f8fafc; border-radius: 4px; text-decoration: none; font-size: 0.85rem;"
-				>
-					Running Standings →
-				</a>
-			</div>
+			<a class="chip chip-accent" href="/progress">
+				Running Standings →
+			</a>
+		</div>
+		<div class="table-wrap">
 			<table>
 				<thead>
 					<tr>
@@ -142,5 +65,33 @@ const totalWeeks = seasonData.length;
 				</tbody>
 			</table>
 		</div>
-	</body>
-</html>
+	</div>
+
+	<style>
+		.links {
+			margin: 1rem 0;
+			display: flex;
+			gap: 0.5rem;
+			flex-wrap: wrap;
+		}
+		.chip {
+			padding: 4px 10px;
+			background-color: var(--surface);
+			color: var(--link);
+			border-radius: 4px;
+			text-decoration: none;
+			font-size: 0.85rem;
+		}
+		.chip:hover {
+			text-decoration: underline;
+		}
+		.chip-accent {
+			background-color: var(--header);
+			color: var(--text);
+		}
+		.rank-col {
+			width: 50px;
+			color: var(--text-muted);
+		}
+	</style>
+</Layout>
