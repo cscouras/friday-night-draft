@@ -1,97 +1,48 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { LeagueTracker } from '../lib/tracker';
-import seasonData from '../data/matchups.json';
-
-const tracker = new LeagueTracker();
-
-for (const week of seasonData) {
-	tracker.processWeek(week.matchups);
-}
-
-const standings = tracker.getStandings();
-const totalWeeks = seasonData.length;
+import { seasons } from '../data/seasons';
 ---
 
 <Layout title="Friday Night Draft | Median Scoring">
 	<div class="container">
 		<header>
 			<h1>Friday Night Draft</h1>
-			<p class="subtitle">
-				League Median Standings ({totalWeeks} Completed {totalWeeks === 1 ? 'Week' : 'Weeks'})
-			</p>
+			<p class="subtitle">League Median Scoring · pick a season</p>
 		</header>
-		<div class="links">
+		<div class="seasons">
 			{
-				seasonData.map((w) => (
-					<a class="chip" href={`/weeks/${w.week}`}>
-						Week {w.week} Results →
+				seasons.map((s) => (
+					<a class="card" href={`/seasons/${s.id}`}>
+						<strong>{s.label}</strong>
+						<span>{s.weeks.length} Completed {s.weeks.length === 1 ? 'Week' : 'Weeks'}</span>
 					</a>
 				))
 			}
-			<a class="chip chip-accent" href="/progress">
-				Running Standings →
-			</a>
-		</div>
-		<div class="table-wrap">
-			<table>
-				<thead>
-					<tr>
-						<th class="rank-col">#</th>
-						<th>Team</th>
-						<th class="numeric">Record</th>
-						<th class="numeric">Win %</th>
-						<th class="numeric">PF</th>
-						<th class="numeric">PA</th>
-					</tr>
-				</thead>
-				<tbody>
-					{
-						standings.map((team, idx) => (
-							<tr>
-								<td class="rank-col">{idx + 1}</td>
-								<td>
-									<strong>{team.name}</strong>
-								</td>
-								<td class="numeric">
-									{team.w}-{team.l}-{team.t}
-								</td>
-								<td class="numeric">{(team.winPct * 100).toFixed(1)}%</td>
-								<td class="numeric">{team.pf.toFixed(2)}</td>
-								<td class="numeric">{team.pa.toFixed(2)}</td>
-							</tr>
-						))
-					}
-				</tbody>
-			</table>
 		</div>
 	</div>
 
 	<style>
-		.links {
-			margin: 1rem 0;
+		.seasons {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+			gap: 0.75rem;
+		}
+		.card {
 			display: flex;
-			gap: 0.5rem;
-			flex-wrap: wrap;
-		}
-		.chip {
-			padding: 4px 10px;
+			flex-direction: column;
+			gap: 0.25rem;
+			padding: 1rem 1.25rem;
 			background-color: var(--surface);
-			color: var(--link);
-			border-radius: 4px;
-			text-decoration: none;
-			font-size: 0.85rem;
-		}
-		.chip:hover {
-			text-decoration: underline;
-		}
-		.chip-accent {
-			background-color: var(--header);
 			color: var(--text);
+			border-radius: 8px;
+			text-decoration: none;
 		}
-		.rank-col {
-			width: 50px;
+		.card:hover {
+			background-color: var(--row-hover);
+		}
+		.card span {
 			color: var(--text-muted);
+			font-size: 0.85rem;
 		}
 	</style>
 </Layout>

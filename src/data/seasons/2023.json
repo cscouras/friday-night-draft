@@ -1,0 +1,977 @@
+[
+  {
+    "week": 1,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Hate The Drake!",
+          "score": 92.24
+        },
+        "team2": {
+          "teamId": 4,
+          "teamName": "Justin Herbert for $1",
+          "score": 86.66
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Jahmyr Mirror on the Wall",
+          "score": 95.96
+        },
+        "team2": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 138.78
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 83.24
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Jeff Up My Henry",
+          "score": 115.44
+        }
+      },
+      {
+        "team1": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 91.38
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 74.4
+        }
+      },
+      {
+        "team1": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 69.22
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "The $50 Man",
+          "score": 110.24
+        }
+      }
+    ]
+  },
+  {
+    "week": 2,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Hate The Drake!",
+          "score": 69.66
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 83.08
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Jahmyr Mirror on the Wall",
+          "score": 107.88
+        },
+        "team2": {
+          "teamId": 4,
+          "teamName": "Justin Herbert for $1",
+          "score": 130
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 96.54
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 141.2
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 125.82
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Jeff Up My Henry",
+          "score": 122.4
+        }
+      },
+      {
+        "team1": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 98.42
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "The $50 Man",
+          "score": 117.44
+        }
+      }
+    ]
+  },
+  {
+    "week": 3,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Hate The Drake!",
+          "score": 100.22
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 134.88
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Jahmyr Mirror on the Wall",
+          "score": 161.94
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 145.66
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 108.96
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "The $50 Man",
+          "score": 99.76
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 106.74
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 118.46
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "Justin Herbert for $1",
+          "score": 117.7
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Jeff Up My Henry",
+          "score": 99.98
+        }
+      }
+    ]
+  },
+  {
+    "week": 4,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Hate The Drake!",
+          "score": 97
+        },
+        "team2": {
+          "teamId": 1,
+          "teamName": "Jahmyr Mirror on the Wall",
+          "score": 96.14
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 82.98
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 105.06
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 165.82
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "The $50 Man",
+          "score": 146.44
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "Justin Herbert for $1",
+          "score": 79.68
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 70.64
+        }
+      },
+      {
+        "team1": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 107.38
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Jeff Up My Henry",
+          "score": 138.6
+        }
+      }
+    ]
+  },
+  {
+    "week": 5,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Hate The Drake!",
+          "score": 111.06
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Jeff Up My Henry",
+          "score": 84.44
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Jahmyr Mirror on the Wall",
+          "score": 105.44
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 143.72
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 145.86
+        },
+        "team2": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 81.52
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "Justin Herbert for $1",
+          "score": 134.94
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "The $50 Man",
+          "score": 99.38
+        }
+      },
+      {
+        "team1": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 132.92
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 86.78
+        }
+      }
+    ]
+  },
+  {
+    "week": 6,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Hate The Drake!",
+          "score": 110.46
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 97.14
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Jahmyr Mirror on the Wall",
+          "score": 87.12
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Jeff Up My Henry",
+          "score": 111.84
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 88.34
+        },
+        "team2": {
+          "teamId": 4,
+          "teamName": "Justin Herbert for $1",
+          "score": 99.28
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 73.9
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 111.6
+        }
+      },
+      {
+        "team1": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 150.28
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "The $50 Man",
+          "score": 73.72
+        }
+      }
+    ]
+  },
+  {
+  "week": 7,
+  "matchups": [
+    {
+      "team1": {
+        "teamId": 9,
+        "teamName": "Hate The Drake!",
+        "score": 118.2
+      },
+      "team2": {
+        "teamId": 8,
+        "teamName": "The $50 Man",
+        "score": 96.68
+      }
+    },
+    {
+      "team1": {
+        "teamId": 1,
+        "teamName": "Jahmyr Mirror on the Wall",
+        "score": 129.88
+      },
+      "team2": {
+        "teamId": 6,
+        "teamName": "I am good at fantasy baseball!",
+        "score": 100.84
+      }
+    },
+    {
+      "team1": {
+        "teamId": 2,
+        "teamName": "Moore Cowbell!",
+        "score": 113.56
+      },
+      "team2": {
+        "teamId": 5,
+        "teamName": "OnlyFins",
+        "score": 81.34
+      }
+    },
+    {
+      "team1": {
+        "teamId": 3,
+        "teamName": "Bench Don’t Kill My Vibe",
+        "score": 68.96
+      },
+      "team2": {
+        "teamId": 4,
+        "teamName": "Justin Herbert for $1",
+        "score": 124.36
+      }
+    },
+    {
+      "team1": {
+        "teamId": 7,
+        "teamName": "Phearsome McPhersons",
+        "score": 90.06
+      },
+      "team2": {
+        "teamId": 10,
+        "teamName": "Jeff Up My Henry",
+        "score": 62.06
+      }
+    }
+  ]
+},
+  {
+    "week": 8,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Hate The Drake!",
+          "score": 127.26
+        },
+        "team2": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 112.98
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Jahmyr Mirror on the Wall",
+          "score": 88.78
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "The $50 Man",
+          "score": 114.06
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 126.8
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 124.66
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "Justin Herbert for $1",
+          "score": 134.22
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 135.26
+        }
+      },
+      {
+        "team1": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 107.26
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Jeff Up My Henry",
+          "score": 103.26
+        }
+      }
+    ]
+  },
+  {
+    "week": 9,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Hate The Drake!",
+          "score": 148.12
+        },
+        "team2": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 84.24
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Jahmyr Mirror on the Wall",
+          "score": 95.28
+        },
+        "team2": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 113.3
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "Justin Herbert for $1",
+          "score": 86.34
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 88.72
+        }
+      },
+      {
+        "team1": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 130.96
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 120.68
+        }
+      },
+      {
+        "team1": {
+          "teamId": 8,
+          "teamName": "The $50 Man",
+          "score": 56.28
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Jeff Up My Henry",
+          "score": 102.72
+        }
+      }
+    ]
+  },
+  {
+    "week": 10,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Hate The Drake!",
+          "score": 119.58
+        },
+        "team2": {
+          "teamId": 4,
+          "teamName": "Justin Herbert for $1",
+          "score": 113.62
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Jahmyr Mirror on the Wall",
+          "score": 139.42
+        },
+        "team2": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 128.98
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 111.24
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Jeff Up My Henry",
+          "score": 87.42
+        }
+      },
+      {
+        "team1": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 119.88
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 98.26
+        }
+      },
+      {
+        "team1": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 113.66
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "The $50 Man",
+          "score": 106.84
+        }
+      }
+    ]
+  },
+  {
+    "week": 11,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Hate The Drake!",
+          "score": 93.9
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 109.5
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Jahmyr Mirror on the Wall",
+          "score": 127.16
+        },
+        "team2": {
+          "teamId": 4,
+          "teamName": "Justin Herbert for $1",
+          "score": 132.1
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 106.74
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 94.36
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 115.14
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Jeff Up My Henry",
+          "score": 86.98
+        }
+      },
+      {
+        "team1": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 96.2
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "The $50 Man",
+          "score": 107.16
+        }
+      }
+    ]
+  },
+  {
+    "week": 12,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Hate The Drake!",
+          "score": 113.36
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 147.7
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Jahmyr Mirror on the Wall",
+          "score": 104.18
+        },
+        "team2": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 102.62
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 120.46
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "The $50 Man",
+          "score": 104.98
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 122.1
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 110.84
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "Justin Herbert for $1",
+          "score": 113.18
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Jeff Up My Henry",
+          "score": 118.02
+        }
+      }
+    ]
+  },
+  {
+    "week": 13,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Hate The Drake!",
+          "score": 84.7
+        },
+        "team2": {
+          "teamId": 1,
+          "teamName": "Jahmyr Mirror on the Wall",
+          "score": 101.74
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 87.86
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 131.82
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 101.88
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "The $50 Man",
+          "score": 115.66
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "Justin Herbert for $1",
+          "score": 133.08
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 108.46
+        }
+      },
+      {
+        "team1": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 163.32
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Jeff Up My Henry",
+          "score": 141.8
+        }
+      }
+    ]
+  },
+  {
+    "week": 14,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Hate The Drake!",
+          "score": 87.22
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Jeff Up My Henry",
+          "score": 111.64
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Jahmyr Mirror on the Wall",
+          "score": 116.84
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 115.28
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 99.34
+        },
+        "team2": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 70.62
+        }
+      },
+      {
+        "team1": {
+          "teamId": 4,
+          "teamName": "Justin Herbert for $1",
+          "score": 116.54
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "The $50 Man",
+          "score": 108.72
+        }
+      },
+      {
+        "team1": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 105.9
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 110.14
+        }
+      }
+    ]
+  },
+  {
+    "week": 15,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Hate The Drake!",
+          "score": 111.46
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "I am good at fantasy baseball!",
+          "score": 67.56
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "Jahmyr Mirror on the Wall",
+          "score": 144.94
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Jeff Up My Henry",
+          "score": 68
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Moore Cowbell!",
+          "score": 116.82
+        },
+        "team2": {
+          "teamId": 4,
+          "teamName": "Justin Herbert for $1",
+          "score": 108.32
+        }
+      },
+      {
+        "team1": {
+          "teamId": 3,
+          "teamName": "Bench Don’t Kill My Vibe",
+          "score": 111.48
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Phearsome McPhersons",
+          "score": 108.46
+        }
+      },
+      {
+        "team1": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 141.74
+        },
+        "team2": {
+          "teamId": 8,
+          "teamName": "The $50 Man",
+          "score": 77.08
+        }
+      }
+    ]
+  }
+]

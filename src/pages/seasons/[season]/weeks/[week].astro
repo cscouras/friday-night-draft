@@ -1,37 +1,67 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import data from '../../data/matchups.json';
-import { getWeeklyAudit } from '../../lib/tracker';
+import Layout from '../../../../layouts/Layout.astro';
+import { getWeeklyAudit, type Result } from '../../../../lib/tracker';
+import { seasons, type Season, type WeekData } from '../../../../data/seasons';
 
 export function getStaticPaths() {
-	return data.map((w) => ({
-		params: { week: w.week.toString() },
-		props: { weekNumber: w.week, weekData: w },
-	}));
+	return seasons.flatMap((s) =>
+		s.weeks.map((w) => ({
+			params: { season: s.id, week: w.week.toString() },
+			props: { season: s, weekNumber: w.week, weekData: w },
+		})),
+	);
 }
 
-const { week } = Astro.params;
-const { weekNumber, weekData } = Astro.props;
+const { season, weekNumber, weekData } = Astro.props as {
+	season: Season;
+	weekNumber: number;
+	weekData: WeekData;
+};
+
+const weekNumbers = season.weeks.map((w) => w.week);
+const weekIndex = weekNumbers.indexOf(weekNumber);
+const prevWeek = weekIndex > 0 ? weekNumbers[weekIndex - 1] : null;
+const nextWeek =
+	weekIndex >= 0 && weekIndex < weekNumbers.length - 1
+		? weekNumbers[weekIndex + 1]
+		: null;
 
 const { median, rows } = getWeeklyAudit(weekData.matchups);
 const sorted = rows.sort((a, b) => b.score - a.score);
 
-const resultClass = (r) => (r === 'W' ? 'w' : r === 'L' ? 'l' : 't');
+const resultClass = (r: Result) => (r === 'W' ? 'w' : r === 'L' ? 'l' : 't');
 
 const tieBreaker = () => sorted.some((r) => r.h2h === 'T' || r.med === 'T');
 ---
 
-<Layout title={`Week ${weekNumber} Results | Friday Night Draft`}>
+<Layout
+	title={`Week ${weekNumber} Results | ${season.label} | Friday Night Draft`}
+>
 	<div class="container">
 		<nav>
-			<a href="/">← Back to Standings</a>
-			<a href="/progress">Running Standings →</a>
+			<a href={`/seasons/${season.id}`}>← Back to Standings</a>
+			{
+				prevWeek !== null && (
+					<a href={`/seasons/${season.id}/weeks/${prevWeek}`}>
+						← Week {prevWeek}
+					</a>
+				)
+			}
+			<span class="spacer"></span>
+			{
+				nextWeek !== null && (
+					<a href={`/seasons/${season.id}/weeks/${nextWeek}`}>
+						Week {nextWeek} →
+					</a>
+				)
+			}
+			<a href={`/seasons/${season.id}/progress`}>Running Standings →</a>
 		</nav>
 		<header>
 			<h1>Week {weekNumber} Results</h1>
 			<p class="subtitle">
-				League Median Cutoff: <strong>{median.toFixed(2)}</strong> · Verify
-				weekly scores and how each W and L was earned
+				League Median Cutoff: <strong>{median.toFixed(2)}</strong> · Verify weekly
+				scores and how each W and L was earned
 			</p>
 		</header>
 		<div class="table-wrap">
@@ -50,7 +80,9 @@ const tieBreaker = () => sorted.some((r) => r.h2h === 'T' || r.med === 'T');
 					{
 						sorted.map((row) => (
 							<tr>
-								<td><strong>{row.name}</strong></td>
+								<td>
+									<strong>{row.name}</strong>
+								</td>
 								<td class="numeric">{row.score.toFixed(2)}</td>
 								<td class="opp">
 									{row.opponent} ({row.oppScore.toFixed(2)})
@@ -87,12 +119,16 @@ const tieBreaker = () => sorted.some((r) => r.h2h === 'T' || r.med === 'T');
 	<style>
 		nav {
 			display: flex;
+			flex-wrap: wrap;
 			gap: 1rem;
 			margin-bottom: 1.5rem;
 		}
 		nav a {
 			color: var(--link);
 			text-decoration: none;
+		}
+		nav .spacer {
+			flex: 1 1 auto;
 		}
 		.opp {
 			color: var(--text-muted);
