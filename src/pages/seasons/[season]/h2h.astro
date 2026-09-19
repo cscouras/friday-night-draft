@@ -23,40 +23,81 @@ for (const week of season.weeks) {
 const leagueStandings = leagueTracker.getStandings();
 const h2hStandings = h2hTracker.getStandings();
 
-const h2hRankById = new Map(h2hStandings.map((t, i) => [t.teamId, i]));
+const leagueRankById = new Map(leagueStandings.map((t, i) => [t.teamId, i]));
 
-const rows = leagueStandings.map((team, leagueRank) => {
-	const h2hRank = h2hRankById.get(team.teamId) ?? leagueRank;
-	const h2h = h2hRankById.has(team.teamId) ? h2hStandings[h2hRank] : null;
-	const movement = leagueRank - h2hRank;
-	return { team, leagueRank, h2h, h2hRank, movement };
+const rows = h2hStandings.map((team, h2hRank) => {
+	const leagueRank = leagueRankById.get(team.teamId) ?? h2hRank;
+	const league = leagueRankById.has(team.teamId)
+		? leagueStandings[leagueRank]
+		: null;
+	const movement = h2hRank - leagueRank;
+	return { team, h2hRank, league, leagueRank, movement };
 });
+
+const totalWeeks = season.weeks.length;
+
+interface ComparisonRow {
+	h2hRank: number;
+	leagueRank: number;
+}
+
+const ordinal = (n: number) => {
+	const ones = n % 10;
+	const tens = Math.floor(n / 10) % 10;
+	if (tens === 1) return `${n}th`;
+	if (ones === 1) return `${n}st`;
+	if (ones === 2) return `${n}nd`;
+	if (ones === 3) return `${n}rd`;
+	return `${n}th`;
+};
+
+const movers = rows
+	.filter((r) => r.movement !== 0)
+	.sort((a, b) => b.movement - a.movement);
+
+const position = (r: ComparisonRow) =>
+	`${ordinal(r.h2hRank + 1)} → ${ordinal(r.leagueRank + 1)}`;
+
+const summary = () => {
+	if (movers.length === 0) {
+		return `With ${totalWeeks} completed ${totalWeeks === 1 ? 'week' : 'weeks'}, adding the league median matchup wouldn't have changed any team's final placement.`;
+	}
+	const riser = movers[0];
+	const faller = movers[movers.length - 1];
+	const riserClause = `${riser.team.name} would have climbed ${riser.movement} ${riser.movement === 1 ? 'place' : 'places'} (${position(riser)})`;
+	const fallerClause = `${faller.team.name} would have slipped ${Math.abs(faller.movement)} ${Math.abs(faller.movement) === 1 ? 'place' : 'places'} (${position(faller)})`;
+	return `If league median scoring had been used, ${movers.length} of ${rows.length} teams would have finished in a different spot. ${riserClause}; ${fallerClause}.`;
+};
 ---
 
-<Layout title={`H2H What-If | ${season.label} | Friday Night Draft`}>
+<Layout
+	title={`Standings If We'd Had Median Scoring | ${season.label} | Friday Night Draft`}
+>
 	<div class="container">
 		<nav>
 			<a href={`/seasons/${season.id}`}>← Back to Standings</a>
 			<a href={`/seasons/${season.id}/progress`}>Running Standings →</a>
 		</nav>
 		<header>
-			<h1>H2H What-If</h1>
+			<h1>Standings If We'd Had Median Scoring</h1>
 			<p class="subtitle">
-				How {season.label} standings would shake out without the median
-				matchup — head-to-head only, benchmarked against today's standings.
+				Our league is head-to-head only. These standings show how final
+				placements would have changed if we'd also counted the matchup
+				against each week's league median.
 			</p>
 		</header>
+		<p class="summary">{summary()}</p>
 		<div class="table-wrap">
 			<table>
 				<thead>
 					<tr>
-						<th class="rank-col">League #</th>
+						<th class="rank-col">#</th>
 						<th>Team</th>
-						<th class="numeric">League Rec</th>
-						<th class="numeric">League Win %</th>
 						<th class="numeric">H2H Rec</th>
 						<th class="numeric">H2H Win %</th>
 						<th class="numeric">Med Rec</th>
+						<th class="numeric">W/ Median Rec</th>
+						<th class="numeric">W/ Median Win %</th>
 						<th class="numeric">PF</th>
 						<th class="numeric">Δ Rank</th>
 					</tr>
@@ -65,7 +106,7 @@ const rows = leagueStandings.map((team, leagueRank) => {
 					{
 						rows.map((row) => (
 							<tr>
-								<td class="rank-col">{row.leagueRank + 1}</td>
+								<td class="rank-col">{row.h2hRank + 1}</td>
 								<td><strong>{row.team.name}</strong></td>
 								<td class="numeric">
 									{formatRecord(row.team.w, row.team.l, row.team.t)}
@@ -74,21 +115,21 @@ const rows = leagueStandings.map((team, leagueRank) => {
 									{(row.team.winPct * 100).toFixed(1)}%
 								</td>
 								<td class="numeric">
-									{row.h2h
-										? formatRecord(row.h2h.w, row.h2h.l, row.h2h.t)
-										: '–'}
-								</td>
-								<td class="numeric">
-									{row.h2h ? (row.h2h.winPct * 100).toFixed(1) : '–'}%
-								</td>
-								<td class="numeric">
-									{row.team.median
+									{row.league?.median
 										? formatRecord(
-												row.team.median.w,
-												row.team.median.l,
-												row.team.median.t,
+												row.league.median.w,
+												row.league.median.l,
+												row.league.median.t,
 											)
 										: '–'}
+								</td>
+								<td class="numeric">
+									{row.league
+										? formatRecord(row.league.w, row.league.l, row.league.t)
+										: '–'}
+								</td>
+								<td class="numeric">
+									{row.league ? (row.league.winPct * 100).toFixed(1) : '–'}%
 								</td>
 								<td class="numeric">{row.team.pf.toFixed(2)}</td>
 								<td class="numeric">
@@ -109,8 +150,8 @@ const rows = leagueStandings.map((team, leagueRank) => {
 			</table>
 		</div>
 		<p class="notes">
-			Δ Rank shows how many places a team would move (↑ higher, ↓ lower) if
-			median scoring were dropped for head-to-head results only.
+			Δ Rank shows how the final placement would have changed if league median
+			scoring had been counted (↑ climbed, ↓ slipped).
 		</p>
 	</div>
 
@@ -126,6 +167,14 @@ const rows = leagueStandings.map((team, leagueRank) => {
 		}
 		.rank-col {
 			width: 70px;
+		}
+		.summary {
+			margin: 1rem 0 1.25rem;
+			padding: 0.9rem 1.1rem;
+			background-color: var(--surface);
+			border-left: 3px solid var(--header);
+			border-radius: 6px;
+			line-height: 1.5;
 		}
 		.delta {
 			font-weight: bold;
