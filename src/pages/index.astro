@@ -93,7 +93,24 @@ const totalWeeks = seasonData.length;
 					})
 				</p>
 			</header>
-
+			<div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+				{
+					seasonData.map((w) => (
+						<a
+							href={`/weeks/${w.week}`}
+							style="padding: 4px 10px; background: #1e293b; color: #60a5fa; border-radius: 4px; text-decoration: none; font-size: 0.85rem;"
+						>
+							Week {w.week} Results →
+						</a>
+					))
+				}
+				<a
+					href="/progress"
+					style="padding: 4px 10px; background: #334155; color: #f8fafc; border-radius: 4px; text-decoration: none; font-size: 0.85rem;"
+				>
+					Running Standings →
+				</a>
+			</div>
 			<table>
 				<thead>
 					<tr>

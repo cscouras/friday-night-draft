@@ -1,0 +1,176 @@
+---
+import { LeagueTracker, type TeamStanding } from '../lib/tracker';
+import seasonData from '../data/matchups.json';
+
+interface Snapshot {
+  week: number;
+  standings: TeamStanding[];
+}
+
+const snapshots: Snapshot[] = [];
+const tracker = new LeagueTracker();
+for (const w of seasonData) {
+  tracker.processWeek(w.matchups);
+  snapshots.push({ week: w.week, standings: tracker.getStandings() });
+}
+
+const finalStandings = snapshots[snapshots.length - 1]!.standings;
+
+const teamOrder = finalStandings.map((t) => t.teamId);
+const rows = teamOrder.map((id) => {
+  const name = finalStandings.find((t) => t.teamId === id)!.name;
+  const cells = snapshots.map(
+    (snap) => snap.standings.find((t) => t.teamId === id) ?? null
+  );
+  const finalRow = finalStandings.find((t) => t.teamId === id)!;
+  return { id, name, cells, finalRow };
+});
+
+const record = (s: TeamStanding | null) => {
+  if (!s) return '–';
+  return s.t > 0 ? `${s.w}-${s.l}-${s.t}` : `${s.w}-${s.l}`;
+};
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Running Standings | Friday Night Draft</title>
+		<style>
+			body {
+				font-family:
+					system-ui,
+					-apple-system,
+					BlinkMacSystemFont,
+					'Segoe UI',
+					Roboto,
+					sans-serif;
+				background-color: #0f172a;
+				color: #f8fafc;
+				margin: 0;
+				padding: 2rem 1rem;
+			}
+			.container {
+				max-width: 1100px;
+				margin: 0 auto;
+			}
+			nav {
+				display: flex;
+				gap: 1rem;
+				margin-bottom: 1.5rem;
+			}
+			nav a {
+				color: #60a5fa;
+				text-decoration: none;
+			}
+			header {
+				margin-bottom: 1.5rem;
+			}
+			h1 {
+				font-size: 1.75rem;
+				margin: 0 0 0.25rem 0;
+			}
+			p.subtitle {
+				color: #94a3b8;
+				margin: 0;
+				font-size: 0.95rem;
+			}
+			.table-wrap {
+				overflow-x: auto;
+			}
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				background-color: #1e293b;
+				border-radius: 8px;
+				overflow: hidden;
+				font-size: 0.9rem;
+			}
+			th,
+			td {
+				padding: 0.6rem 0.75rem;
+				text-align: center;
+				white-space: nowrap;
+			}
+			th {
+				background-color: #334155;
+				font-size: 0.8rem;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+				color: #cbd5e1;
+			}
+			th.name,
+			td.name {
+				text-align: left;
+			}
+			tr:nth-child(even) {
+				background-color: #162032;
+			}
+			tr:hover {
+				background-color: #243047;
+			}
+			td.final {
+				color: #fbbf24;
+				font-weight: bold;
+			}
+			td.sub {
+				color: #94a3b8;
+				font-size: 0.8rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<nav>
+				<a href="/">← Back to Standings</a>
+				<a href="/weeks/1">Week Results →</a>
+			</nav>
+			<header>
+				<h1>Running Standings</h1>
+				<p class="subtitle">
+					Cumulative W-L-T after each week. Follow each team column across to
+					verify it adds up to today's standings.
+				</p>
+			</header>
+			<div class="table-wrap">
+				<table>
+					<thead>
+						<tr>
+							<th class="name">Team</th>
+							{
+								snapshots.map((snap) => (
+									<th>
+										Wk {snap.week}
+									</th>
+								))
+							}
+							<th>Now</th>
+							<th>Win %</th>
+							<th>PF</th>
+						</tr>
+					</thead>
+					<tbody>
+						{
+							rows.map((row) => (
+								<tr>
+									<td class="name"><strong>{row.name}</strong></td>
+									{
+										row.cells.map((cell) => (
+											<td>{record(cell)}</td>
+										))
+									}
+									<td class="final">
+										{record(row.finalRow)}
+									</td>
+									<td>{(row.finalRow.winPct * 100).toFixed(1)}%</td>
+									<td>{row.finalRow.pf.toFixed(2)}</td>
+								</tr>
+							))
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

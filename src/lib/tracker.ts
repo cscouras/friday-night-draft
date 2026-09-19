@@ -20,6 +20,72 @@ export interface TeamStanding {
   winPct: number;
 }
 
+export interface WeeklyAuditRow {
+  name: string;
+  score: number;
+  opponent: string;
+  oppScore: number;
+  h2h: 'W' | 'L' | 'T';
+  med: 'W' | 'L' | 'T';
+  wins: number;
+  losses: number;
+  ties: number;
+}
+
+export type Result = 'W' | 'L' | 'T';
+
+export function resultFrom(score: number, against: number): Result {
+  if (score > against) return 'W';
+  if (score < against) return 'L';
+  return 'T';
+}
+
+export function computeMedian(scores: number[]): number {
+  const sorted = [...scores].sort((a, b) => a - b);
+  const mid = sorted.length / 2;
+  return sorted.length % 2 === 0
+    ? (sorted[mid - 1] + sorted[mid]) / 2
+    : sorted[Math.floor(mid)];
+}
+
+export function getWeeklyAudit(matchups: Matchup[]): {
+  median: number;
+  rows: WeeklyAuditRow[];
+} {
+  const weeklyScores = matchups.flatMap(({ team1, team2 }) => [
+    team1.score,
+    team2.score,
+  ]);
+  const median = computeMedian(weeklyScores);
+
+  const rows: WeeklyAuditRow[] = [];
+  for (const { team1, team2 } of matchups) {
+    for (const [team, opp] of [
+      [team1, team2],
+      [team2, team1],
+    ] as const) {
+      const h2h = resultFrom(team.score, opp.score);
+      const med = resultFrom(team.score, median);
+      const wins = (h2h === 'W' ? 1 : 0) + (med === 'W' ? 1 : 0);
+      const losses = (h2h === 'L' ? 1 : 0) + (med === 'L' ? 1 : 0);
+      const ties = (h2h === 'T' ? 1 : 0) + (med === 'T' ? 1 : 0);
+      rows.push({
+        name: team.teamName,
+        score: team.score,
+        opponent: opp.teamName,
+        oppScore: opp.score,
+        h2h,
+        med,
+        wins,
+        losses,
+        ties,
+      });
+    }
+  }
+
+  return { median, rows };
+}
+
 export class LeagueTracker {
   // Keyed permanently by teamId
   private records: Map<
@@ -75,12 +141,7 @@ export class LeagueTracker {
     }
 
     // 2. Calculate Weekly Median
-    weeklyScores.sort((a, b) => a.score - b.score);
-    const mid = weeklyScores.length / 2;
-    const median =
-      weeklyScores.length % 2 === 0
-        ? (weeklyScores[mid - 1].score + weeklyScores[mid].score) / 2
-        : weeklyScores[Math.floor(mid)].score;
+    const median = computeMedian(weeklyScores.map(({ score }) => score));
 
     // 3. Process Median Matchup
     for (const { id, score } of weeklyScores) {
