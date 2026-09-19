@@ -1,6 +1,8 @@
 {
   "name": "Astro Fantasy Tracker",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "remoteUser": "node",
 
   "runArgs": [
@@ -13,6 +15,11 @@
       "label": "Astro Dev Server",
       "onAutoForward": "notify"
     }
+  },
+
+  "containerEnv": {
+    "XDG_CONFIG_HOME": "/workspaces/friday-night-draft/.opencode/config",
+    "XDG_DATA_HOME": "/workspaces/friday-night-draft/.opencode/data"
   },
 
   "customizations": {

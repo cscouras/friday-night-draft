@@ -22,6 +22,9 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# opencode local state (sessions, config) - kept in workspace to survive rebuilds
+.opencode/
+
 # jetbrains setting folder
 .idea/
 package-lock.json
