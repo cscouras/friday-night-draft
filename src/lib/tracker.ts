@@ -113,7 +113,6 @@ interface TeamData {
   median?: RawRecord;
   pf: number;
   paOpp: number;
-  paMedian: number;
 }
 
 const emptyRecord = (): RawRecord => ({ w: 0, l: 0, t: 0 });
@@ -153,7 +152,6 @@ export class LeagueTracker {
         h2h: emptyRecord(),
         pf: 0,
         paOpp: 0,
-        paMedian: 0,
       });
     }
     const record = this.records.get(teamId)!;
@@ -192,7 +190,6 @@ export class LeagueTracker {
       for (const { id, score } of weeklyScores) {
         const team = this.records.get(id)!;
         if (!team.median) team.median = emptyRecord();
-        team.paMedian += median;
         addResult(team.median, resultFrom(score, median));
       }
     }
@@ -208,7 +205,7 @@ export class LeagueTracker {
           l: stats.h2h.l + median.l,
           t: stats.h2h.t + median.t,
         };
-        const pa = stats.paOpp + (useMedian ? stats.paMedian : 0);
+        const pa = stats.paOpp;
         return {
           teamId,
           name: stats.name,
