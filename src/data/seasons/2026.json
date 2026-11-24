@@ -648,5 +648,70 @@
         }
       }
     ]
+  },
+  {
+    "week": 11,
+    "matchups": [
+      {
+        "team1": {
+          "teamId": 9,
+          "teamName": "Gibbs It t'Zay Now",
+          "score": 147.16
+        },
+        "team2": {
+          "teamId": 4,
+          "teamName": "Harry Heilmans Ghost",
+          "score": 120.8
+        }
+      },
+      {
+        "team1": {
+          "teamId": 1,
+          "teamName": "GoFundMe-Help Caleb Walk Again",
+          "score": 104.74
+        },
+        "team2": {
+          "teamId": 3,
+          "teamName": "Burrowing My Sorrows",
+          "score": 127.7
+        }
+      },
+      {
+        "team1": {
+          "teamId": 2,
+          "teamName": "Three Petes",
+          "score": 118.56
+        },
+        "team2": {
+          "teamId": 7,
+          "teamName": "Save The Clock Tower!",
+          "score": 82.66
+        }
+      },
+      {
+        "team1": {
+          "teamId": 5,
+          "teamName": "OnlyFins",
+          "score": 104.88
+        },
+        "team2": {
+          "teamId": 6,
+          "teamName": "Tennessee Banjos",
+          "score": 138.5
+        }
+      },
+      {
+        "team1": {
+          "teamId": 8,
+          "teamName": "The Naberhood",
+          "score": 75.04
+        },
+        "team2": {
+          "teamId": 10,
+          "teamName": "Mike Finnerty",
+          "score": 102.16
+        }
+      }
+    ]
   }
 ]
